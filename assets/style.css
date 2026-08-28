@@ -97,7 +97,7 @@ nav.main a.on{background:rgba(85,169,245,.18);color:var(--amber);}
 .btn:hover .ar{transform:translateX(4px);}
 .btn.dark{background:linear-gradient(180deg,#1E6FC0,#004A95);color:#fff;border-color:rgba(0,58,116,.7);}
 .btn.dark:hover{filter:brightness(1.12);}
-.btn.glass{background:rgba(15,23,31,.35);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#fff;border:1px solid rgba(255,255,255,.55);
+.btn.glass{background:rgba(15,23,31,.26);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#fff;border:1px solid rgba(255,255,255,.55);
   backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:none;}
 .btn.glass:hover{background:rgba(13,20,27,.75);filter:none;}
 .btn.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line-2);box-shadow:none;}
@@ -195,7 +195,7 @@ section.soft{background:var(--paper);}
 .tile .bg::after{content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(20,29,38,.05) 35%,rgba(20,29,38,.72) 100%);}
 .tile .tb{position:relative;z-index:2;margin:12px;padding:20px 22px;
-  background:rgba(15,23,31,.5);border:1px solid rgba(255,255,255,.22);border-radius:14px;
+  background:rgba(15,23,31,.38);border:1px solid rgba(255,255,255,.24);border-radius:14px;
   backdrop-filter:blur(22px) saturate(150%);-webkit-backdrop-filter:blur(22px) saturate(150%);
   display:flex;flex-direction:column;gap:6px;color:#fff;}
 .tile .tb h3{font-size:20px;font-weight:700;}
@@ -296,14 +296,14 @@ table.tth{border-collapse:collapse;width:100%;min-width:560px;font-size:15px;}
 .about .abg::after{content:"";position:absolute;inset:0;
   background:linear-gradient(90deg,rgba(13,20,27,.66) 0%,rgba(13,20,27,.42) 55%,rgba(13,20,27,.34) 100%);}
 .about-in{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start;}
-.aglass{background:rgba(15,23,31,.48);border:1px solid rgba(255,255,255,.22);border-radius:24px;
+.aglass{background:rgba(15,23,31,.36);border:1px solid rgba(255,255,255,.22);border-radius:24px;
   backdrop-filter:blur(24px) saturate(150%);-webkit-backdrop-filter:blur(24px) saturate(150%);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.3), 0 30px 80px -30px rgba(0,0,0,.5);
   padding:38px 40px;color:#fff;display:flex;flex-direction:column;gap:18px;}
 .aglass h2{color:#fff;}
 .aglass p{color:rgba(255,255,255,.85);font-size:15.5px;}
 .afigs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px;}
-.afig{border:1px solid rgba(255,255,255,.22);background:rgba(15,23,31,.32);border-radius:14px;padding:14px 16px;}
+.afig{border:1px solid rgba(255,255,255,.24);background:rgba(15,23,31,.22);border-radius:14px;padding:14px 16px;}
 .afig .v{font-family:var(--disp);font-weight:800;font-size:22px;color:#fff;}
 .afig .v small{color:var(--amber);font-size:14px;}
 .afig .k{font-size:11.5px;color:rgba(255,255,255,.65);margin-top:3px;}
@@ -315,7 +315,7 @@ table.tth{border-collapse:collapse;width:100%;min-width:560px;font-size:15px;}
 .docs .dhead{color:#fff;font-family:var(--disp);font-weight:700;font-size:19px;}
 .docs .dsub{color:rgba(255,255,255,.75);font-size:14px;max-width:44ch;}
 .docrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;}
-.doc{display:inline-flex;align-items:center;gap:9px;background:rgba(15,23,31,.45);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+.doc{display:inline-flex;align-items:center;gap:9px;background:rgba(15,23,31,.34);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:11px 18px;
   color:#fff;font-size:13px;font-weight:500;text-decoration:none;
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:all .2s;}
@@ -399,7 +399,7 @@ table.tth{border-collapse:collapse;width:100%;min-width:560px;font-size:15px;}
   font-family:var(--disp);font-size:10px;letter-spacing:.06em;
   color:var(--slate-3);pointer-events:none;
   border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:9px 13px;
-  background:rgba(15,23,31,.45);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+  background:rgba(15,23,31,.34);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
 .stage .hud b{color:#fff;font-weight:500;}
 .stage .drag{position:absolute;right:16px;bottom:12px;z-index:5;display:flex;align-items:center;gap:7px;
   font-size:10.5px;color:var(--slate-3);pointer-events:none;
