@@ -72,7 +72,7 @@ header.site.scrolled,header.site.solid{background:rgba(20,29,38,.92);
 .logo .tx small{display:block;font-family:var(--disp);font-weight:400;font-size:8px;
   letter-spacing:.3em;color:rgba(255,255,255,.65);margin-top:4px;}
 nav.main{display:flex;gap:2px;flex:1 1 auto;justify-content:center;}
-nav.main a{text-decoration:none;font-family:var(--disp);font-size:14px;font-weight:500;color:rgba(255,255,255,.88);
+nav.main a{white-space:nowrap;text-decoration:none;font-family:var(--disp);font-size:14px;font-weight:500;color:rgba(255,255,255,.88);
   letter-spacing:.02em;padding:9px 13px;border-radius:100px;transition:all .2s;text-shadow:0 1px 8px rgba(0,0,0,.35);}
 nav.main a:hover{background:rgba(255,255,255,.12);color:#fff;}
 nav.main a.on{background:rgba(85,169,245,.18);color:var(--amber);}
@@ -507,7 +507,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 64px;background:#fff;}
 .mmenu .close{position:absolute;top:24px;right:24px;width:44px;height:44px;border-radius:12px;
   border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;font-size:20px;cursor:pointer;}
 
-@media (max-width:1000px){
+@media (max-width:1120px){
   .fit-grid,.form-grid,.fgrid,.about-in,.fleet2{grid-template-columns:1fr;gap:38px;}
   .tiles,.cases,.diff{grid-template-columns:1fr;}
   .proc{grid-template-columns:1fr 1fr;}
@@ -646,3 +646,12 @@ footer{border-top:1px solid var(--line);padding:56px 0 64px;background:#fff;}
 .nitem h3{font-size:20px;margin-bottom:8px;}
 .nitem p{color:var(--ink-2);font-size:15px;line-height:1.6;}
 @media (max-width:620px){ .nitem{padding:20px;} }
+
+/* тесная шапка на средних ширинах */
+@media (max-width:1360px){
+  .hlink{display:none;}
+  .hrow{gap:14px;}
+  nav.main a{padding:9px 10px;font-size:13.5px;}
+  .lang{margin-right:0;}
+  .hactions .btn{padding:11px 16px;font-size:14.5px;}
+}
