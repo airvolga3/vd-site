@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://airvolga3.github.io/vd-site/sitemap.xml
