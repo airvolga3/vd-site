@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>伏尔加-第聂伯 — 超大超重件航空货运</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<style>:root{--disp:"Golos Text","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;--body:"Golos Text","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;}</style>
+</head>
+<body>
+<div class="ribbon">网站原型 · 演示数据 · 发布前须替换为核实数据与正式图片</div>
+
+<header class="site">
+  <div class="wrap hrow">
+    <a class="logo" href="index.html">
+      <span class="plate"><img src="../img/logo.png" alt="伏尔加-第聂伯" onerror="this.closest('.logo').classList.add('nolg')"></span>
+      <span class="tx">伏尔加-第聂伯<small>CARGO · SINCE 1990</small></span>
+    </a>
+    <nav class="main">
+      <a href="charter.html">包机</a>
+      <a href="regular.html">定期航班</a>
+      <a href="fleet.html">机队</a>
+      <a href="cases.html">案例</a>
+      <a href="about.html">关于我们</a>
+    </nav>
+    <div class="hactions">
+      <div class="lang"><a href="../index.html">RU</a><a href="../en/index.html">EN</a><b>中文</b></div>
+      <a class="hlink" href="regular.html#dirs">时刻表</a>
+      <a class="btn" href="request.html">获取报价 <span class="ar">→</span></a>
+      <button class="burger" id="burger" aria-label="菜单">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <button class="close" id="mclose" aria-label="关闭">✕</button>
+  <a href="charter.html">包机</a>
+  <a href="regular.html">定期航班</a>
+  <a href="fleet.html">机队</a>
+  <a href="cases.html">案例</a>
+  <a href="about.html">关于我们</a>
+  <a href="request.html">获取报价</a>
+  <div class="mlang"><a href="../index.html">RU</a><a href="../en/index.html">EN</a><b>中文</b></div>
+</div>
+
+
+<div class="hero">
+  <div class="fog f1"></div><div class="fog f2"></div>
+  <div class="breathe"></div>
+  <canvas class="rain" id="rain"></canvas>
+  <div class="hero-bg"><img src="../img/rain.jpg" alt="跑道上的伏尔加-第聂伯安-124"></div>
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <div class="kicker up"><span>项目物流与超重货运</span> <span class="script">始于1990年</span></div>
+      <h1><span class="l1 up u1">装不进任何其他飞机的货物</span><span class="l2 up u2">由我们来运送</span></h1>
+      <p class="sub up u3">安-124与伊尔-76机队、自有装载设备与货物规划中心。承运1至150吨。</p>
+      <div class="hero-cta up u4">
+        <a class="btn lg" href="request.html">获取报价 <span class="ar">→</span></a>
+        <a class="link-cta" href="fleet.html#fit">3D试装您的货物 <span class="ar">→</span></a>
+      </div>
+      <div class="promise-badge up u5"><span class="dot"></span> 4个工作小时内提供初步报价</div>
+    </div>
+  </div>
+  <div class="hero-strip">
+    <div class="wrap statline up u5">
+      <div class="st"><div class="v"><span class="cnt" data-to="150">0</span><small> 吨</small></div><div class="k">最大载重</div></div>
+      <div class="st"><div class="v"><span class="cnt" data-to="1050">0</span><small> 立方米</small></div><div class="k">安-124货舱容积</div></div>
+      <div class="st"><div class="v"><span class="cnt" data-to="36">0</span><small>.5 米</small></div><div class="k">货舱长度</div></div>
+      <div class="st"><div class="v">24/7</div><div class="k">全天候接单</div></div>
+    </div>
+    <a class="scrollcue" href="#services" aria-label="向下滚动">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 8l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</div>
+
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="lab cool">我们的服务</span>
+      <h2>三种货运方式</h2>
+    </div>
+    <div class="tiles">
+      <a class="tile rv" href="charter.html">
+        <div class="bg"><img src="../img/rain.jpg" alt="" style="object-position:60% 50%;"></div>
+        <div class="tb">
+          <span class="lab">单次任务</span>
+          <h3>包机</h3>
+          <p>一件货物整机承运：燃气轮机、卫星、直升机、钻井设备。选配机型、办理许可、自有装载工装。</p>
+          <span class="go">了解详情 →</span>
+        </div>
+      </a>
+      <a class="tile rv d1" href="regular.html">
+        <div class="bg"><img src="../img/gold.jpg" alt="" style="object-position:50% 30%;"></div>
+        <div class="tb">
+          <span class="lab">稳定货流</span>
+          <h3>定期航班</h3>
+          <p>有固定时刻与可预期舱位的航线——服务货代、代理与货主。</p>
+          <span class="go">航线与时刻表 →</span>
+        </div>
+      </a>
+      <a class="tile rv d2" href="charter.html#multi">
+        <div class="bg"><img src="../img/multi.jpg" alt="" style="object-position:35% 60%;"></div>
+        <div class="tb">
+          <span class="lab">一站式</span>
+          <h3>多式联运</h3>
+          <p>门到门：头程、清关、空运、末端派送——一份合同、一位经理。</p>
+          <span class="go">运作方式 →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<section class="mapsec" id="map">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="lab">航线网络 · 演示</span>
+      <h2>我们飞别人不飞的航线</h2>
+      <p class="sub">定期航班与包机航线地理。图中点线仅为示意——正式网络将采用商务部门数据。</p>
+    </div>
+    <div class="routemap rv"><svg id="routemap-svg" role="img" aria-label="航线网络示意图"></svg></div>
+    <p class="rm-note">// 示意图而非地理地图 · 城市与航线仅为示例</p>
+  </div>
+</section>
+
+
+<section class="soft" id="fleet">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="lab cool">机队</span>
+      <h2>两款机型，解决<span class="lt">“不可能”的任务</span></h2>
+    </div>
+    <div class="fleet2">
+      <div class="fcard rv">
+        <div class="fimg"><img src="../img/rain.jpg" alt="安-124" style="object-position:70% 45%;"></div>
+        <div class="fb">
+          <h3>安-124-100 / -150 “鲁斯兰”</h3>
+          <div class="specrow">
+            <div class="spec1"><div class="v">120–150 吨</div><div class="k">载重</div></div>
+            <div class="spec1"><div class="v">36.5 米</div><div class="k">货舱</div></div>
+            <div class="spec1"><div class="v">1050 立方米</div><div class="k">容积</div></div>
+            <div class="spec1"><div class="v">两个舱门</div><div class="k">机首+机尾</div></div>
+          </div>
+          <p style="color:var(--ink-2);font-size:14.5px;">世界上最大的量产货机。机首舱门向上开启——车辆自行驶入。</p>
+          <div class="foot"><a class="btn ghost" href="fleet.html">技术参数与图纸 →</a></div>
+        </div>
+      </div>
+      <div class="fcard rv d1">
+        <div class="fimg"><img src="../img/gear.jpg" alt="伊尔-76" style="object-position:50% 40%;"></div>
+        <div class="fb">
+          <h3>伊尔-76TD-90VD</h3>
+          <div class="specrow">
+            <div class="spec1"><div class="v">50 吨</div><div class="k">载重</div></div>
+            <div class="spec1"><div class="v">20.0 米</div><div class="k">货舱</div></div>
+            <div class="spec1"><div class="v">3.45 米</div><div class="k">宽度</div></div>
+            <div class="spec1"><div class="v">货桥</div><div class="k">机尾</div></div>
+          </div>
+          <p style="color:var(--ink-2);font-size:14.5px;">短跑道及无地面设备机场（含土质跑道）的主力机型。</p>
+          <div class="foot"><a class="btn ghost" href="fleet.html">技术参数与图纸 →</a></div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;" class="rv">
+      <a class="btn dark" href="fleet.html#fit">3D试装您的货物 <span class="ar">→</span></a>
+    </div>
+  </div>
+</section>
+
+
+<section id="cases">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="lab cool">案例 · 演示数据</span>
+      <h2>案例是数字，<span class="lt">而不是照片</span></h2>
+      <a class="btn ghost more" href="cases.html">全部案例 →</a>
+    </div>
+    <div class="cases">
+      <div class="case rv">
+        <div class="cap"><span class="ind">能源</span><span class="ac">安-124-100</span></div>
+        <div class="bd">
+          <h3>燃气轮机转子</h3>
+          <dl class="spec">
+            <dt>重量</dt><dd>82 吨</dd>
+            <dt>尺寸</dt><dd>9.1 × 4.2 × 4.0 米</dd>
+            <dt>航线</dt><dd>米兰 → 阿特劳</dd>
+            <dt>周期</dt><dd>从询价到起飞38小时</dd>
+          </dl>
+          <p class="why">目的地机场没有足够起重能力的设备——机载起重机与滚轮工装解决了问题。</p>
+          <a class="case-cta" href="request.html">您的货物也可以这样运 →</a>
+        </div>
+      </div>
+      <div class="case rv d1">
+        <div class="cap"><span class="ind">航空航天</span><span class="ac">安-124-150</span></div>
+        <div class="bd">
+          <h3>集装箱内的卫星</h3>
+          <dl class="spec">
+            <dt>重量</dt><dd>44 吨</dd>
+            <dt>尺寸</dt><dd>12.0 × 4.4 × 4.1 米</dd>
+            <dt>航线</dt><dd>图卢兹 → 拜科努尔</dd>
+            <dt>周期</dt><dd>6小时装载窗口</dd>
+          </dl>
+          <p class="why">全程振动与温度监控，客户代表随机护送。</p>
+          <a class="case-cta" href="request.html">您的货物也可以这样运 →</a>
+        </div>
+      </div>
+      <div class="case rv d2">
+        <div class="cap"><span class="ind">人道主义物资</span><span class="ac">伊尔-76TD-90VD</span></div>
+        <div class="bd">
+          <h3>野战医院</h3>
+          <dl class="spec">
+            <dt>重量</dt><dd>42 吨</dd>
+            <dt>尺寸</dt><dd>拼装，118件</dd>
+            <dt>航线</dt><dd>乌里扬诺夫斯克 → 大马士革</dd>
+            <dt>周期</dt><dd>从来电到起飞19小时</dd>
+          </dl>
+          <p class="why">夜间起飞，四国飞越许可24小时内办妥。</p>
+          <a class="case-cta" href="request.html">您的货物也可以这样运 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="about" id="about">
+  <div class="abg"><img src="../img/gold.jpg" alt=""></div>
+  <div class="wrap about-in">
+    <div class="aglass rv">
+      <span class="lab">关于我们</span>
+      <h2>自1990年起<span class="lt">运送“不可能”</span></h2>
+      <p>伏尔加-第聂伯是一家俄罗斯货运航空公司，凭借安-124开创了全球超大超重件航空货运市场。三十五年多来，我们运送那些无法拆解、无法装箱、海运来不及的货物。</p>
+      <div class="afigs">
+        <div class="afig"><div class="v">35<small>+</small></div><div class="k">年项目物流经验</div></div>
+        <div class="afig"><div class="v">安-124</div><div class="k">与伊尔-76TD-90VD——自有机队</div></div>
+        <div class="afig"><div class="v">190<small>+</small></div><div class="k">个交付国家 · 演示</div></div>
+      </div>
+      <div style="margin-top:6px;"><a class="btn glass" href="about.html">历程与文件 →</a></div>
+    </div>
+    <div class="docs rv d1">
+      <div class="bigyear"><span class="script">始于</span><b>1990</b></div>
+      <span class="dhead">供招标与安全审查</span>
+      <span class="dsub">审查承包商所需的全部文件都在“关于我们”页面——无需与经理往来邮件。</span>
+      <div class="docrow">
+        <a class="doc" href="about.html#docs">航空承运人运行合格证</a>
+        <a class="doc" href="about.html#docs">许可与资质</a>
+        <a class="doc" href="about.html#docs">保险</a>
+        <a class="doc" href="about.html#docs">公司信息</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="soft" id="process">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="lab cool">工作流程</span>
+      <h2>从询价到交付文件——<span class="lt">五个步骤</span></h2>
+    </div>
+    <div class="proc">
+      <div class="pstep rv"><span class="pn">第 01 步</span><h3>询价与报价</h3><p>尺寸、重量、航线——初步运价与机位。</p><span class="pt">4个工作小时内</span></div>
+      <div class="pstep rv d1"><span class="pn">第 02 步</span><h3>签约与规划</h3><p>规划中心计算配载、系留与配平方案。</p><span class="pt">工程设计</span></div>
+      <div class="pstep rv d1"><span class="pn">第 03 步</span><h3>许可与航路</h3><p>飞越许可、时刻、机场协调——由我们负责。</p><span class="pt">同步进行</span></div>
+      <div class="pstep rv d2"><span class="pn">第 04 步</span><h3>航班与装载</h3><p>自有设备。客户代表可到场监装或随机。</p><span class="pt">随时掌握状态</span></div>
+      <div class="pstep rv d3"><span class="pn">第 05 步</span><h3>卸载与文件</h3><p>无地面设备也能卸载。提供全套结算文件。</p><span class="pt">交接单 · POD · 报告</span></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="ctaband">
+  <div class="wrap cb-in rv">
+    <span class="lab">今天就开始</span>
+    <h2>货物已经等待发运？</h2>
+    <p>发送货物参数——四个工作小时内提供初步运价与机位。紧急货物请联系全天候包机值班台。</p>
+    <div class="cb-btns">
+      <a class="btn lg" href="request.html">获取报价 <span class="ar">→</span></a>
+      <a class="btn glass lg" href="request.html#contacts">即时通讯联系</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fgrid">
+    <div>
+      <span class="lab cool">所有问题的统一入口</span>
+      <a class="contact-big" href="request.html">+7 495 755 68 50</a>
+      <a class="contact-mail" href="request.html">sales@volga-dnepr.com</a>
+      <div class="msgrow">
+        <a class="msg" href="request.html#contacts">WhatsApp</a>
+        <a class="msg" href="request.html#contacts">Telegram</a>
+        <a class="msg" href="request.html#contacts">预约回电</a>
+      </div>
+      <p class="contact-sub">全天候服务，节假日无休。包机值班经理通过手机号在即时通讯工具中回复。</p>
+    </div>
+    <div class="fcol">
+      <span class="lab cool">运输服务</span>
+      <a href="charter.html">包机航班</a>
+      <a href="regular.html">定期航班</a>
+      <a href="charter.html#multi">多式联运</a>
+      <a href="fleet.html">机队与舱位尺寸</a>
+      <a href="cases.html">案例</a>
+    </div>
+    <div class="fcol">
+      <span class="lab cool">公司</span>
+      <a href="about.html">关于我们</a>
+      <a href="about.html#docs">招标文件</a>
+      <a href="about.html#history">发展历程</a>
+      <a href="request.html">联系方式</a>
+    </div>
+  </div>
+  <div class="wrap fnote">
+    <span>© 伏尔加-第聂伯 · 网站原型</span>
+    <span>演示数据：数字、案例、航线与时限均需替换为核实信息</span>
+    <span>RU / EN / 中文 — 请使用页眉中的语言切换</span>
+  </div>
+</footer>
+
+<script src="../assets/worldmap.js"></script>
+<script src="../assets/app.js"></script>
+</body>
+</html>

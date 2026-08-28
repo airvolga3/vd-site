@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>获取报价 — 伏尔加-第聂伯</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<style>:root{--disp:"Golos Text","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;--body:"Golos Text","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;}</style>
+</head>
+<body>
+<div class="ribbon">网站原型 · 演示数据 · 发布前须替换为核实数据</div>
+<header class="site">
+  <div class="wrap hrow">
+    <a class="logo" href="index.html">
+      <span class="plate"><img src="../img/logo.png" alt="伏尔加-第聂伯" onerror="this.closest('.logo').classList.add('nolg')"></span>
+      <span class="tx">伏尔加-第聂伯<small>CARGO · SINCE 1990</small></span>
+    </a>
+    <nav class="main">
+      <a href="charter.html">包机</a>
+      <a href="regular.html">定期航班</a>
+      <a href="fleet.html">机队</a>
+      <a href="cases.html">案例</a>
+      <a href="about.html">关于我们</a>
+    </nav>
+    <div class="hactions">
+      <div class="lang"><a href="../request.html">RU</a><a href="../en/request.html">EN</a><b>中文</b></div>
+      <a class="hlink" href="regular.html#dirs">时刻表</a>
+      <a class="btn" href="request.html">获取报价 <span class="ar">→</span></a>
+      <button class="burger" id="burger" aria-label="菜单">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <button class="close" id="mclose" aria-label="关闭">✕</button>
+  <a href="charter.html">包机</a>
+  <a href="regular.html">定期航班</a>
+  <a href="fleet.html">机队</a>
+  <a href="cases.html">案例</a>
+  <a href="about.html">关于我们</a>
+  <a href="request.html">获取报价</a>
+  <div class="mlang"><a href="../request.html">RU</a><a href="../en/request.html">EN</a><b>中文</b></div>
+</div>
+
+<section class="formsec" id="request" style="padding-top:170px;">
+  <div class="fbg"><img src="../img/gear.jpg" alt=""></div>
+  <div class="wrap form-grid">
+    <div class="rv">
+      <span class="lab">询价 · 三步</span>
+      <h2 style="margin-top:14px;">联系方式——<span class="lt">只在最后一步填写</span></h2>
+      <div class="why-list">
+        <div class="it"><span class="ic">01</span><p><strong>只问影响运价的信息</strong>重量、尺寸与货物性质——缺了它们，任何报价都会变成漫长的邮件往来。</p></div>
+        <div class="it"><span class="ic">02</span><p><strong>4个工作小时内回复</strong>初步运价与机位确认。紧急情况请联系全天候值班台。</p></div>
+        <div class="it"><span class="ic">03</span><p><strong>所有服务的统一入口</strong>包机、定期航班、多式联运——一张表单、一位经理。</p></div>
+      </div>
+      <div id="contacts" style="margin-top:36px;display:flex;flex-direction:column;gap:10px;">
+        <span class="lab">或直接联系</span>
+        <a href="tel:+74957556850" style="font-family:var(--disp);font-weight:800;font-size:26px;color:#fff;text-decoration:none;">+7 495 755 68 50</a>
+        <a href="mailto:sales@volga-dnepr.com" style="color:var(--amber);font-weight:600;text-decoration:none;">sales@volga-dnepr.com</a>
+        <div class="msgrow">
+          <a class="msg" style="color:#fff;border-color:rgba(255,255,255,.4);" href="#contacts">WhatsApp</a>
+          <a class="msg" style="color:#fff;border-color:rgba(255,255,255,.4);" href="#contacts">Telegram</a>
+        </div>
+      </div>
+    </div>
+    <div class="form-card rv d1">
+      <div class="steps" id="tabs">
+        <div class="step-tab on" data-step="1"><span class="sn">第 1 步</span><span class="st">货物</span></div>
+        <div class="step-tab" data-step="2"><span class="sn">第 2 步</span><span class="st">航线与时限</span></div>
+        <div class="step-tab" data-step="3"><span class="sn">第 3 步</span><span class="st">联系方式</span></div>
+      </div>
+      <div class="panel on" data-panel="1">
+        <div class="f2">
+          <div class="field"><label for="fw">重量 · 吨</label><input id="fw" type="number" step="0.1" placeholder="82"></div>
+          <div class="field"><label for="ft">货物类型</label>
+            <select id="ft"><option>项目 / 超大件</option><option>普货</option><option>危险品 (DGR)</option><option>温控货物</option><option>活体货物</option><option>人道主义物资</option></select>
+          </div>
+        </div>
+        <div class="f3">
+          <div class="field"><label for="fl">长 · 米</label><input id="fl" type="number" step="0.1" placeholder="9,1"></div>
+          <div class="field"><label for="fwd">宽 · 米</label><input id="fwd" type="number" step="0.1" placeholder="4,2"></div>
+          <div class="field"><label for="fh">高 · 米</label><input id="fh" type="number" step="0.1" placeholder="4,0"></div>
+        </div>
+        <div class="field"><label for="fn">一句话描述货物</label><input id="fn" type="text" placeholder="燃气轮机转子"></div>
+        <div class="nav-btns"><span class="hint">这一步不需要任何联系方式</span><button class="btn dark" data-go="2">下一步 <span class="ar">→</span></button></div>
+      </div>
+      <div class="panel" data-panel="2">
+        <div class="f2">
+          <div class="field"><label for="ffrom">出发地</label><input id="ffrom" type="text" placeholder="城市或机场"></div>
+          <div class="field"><label for="fto">目的地</label><input id="fto" type="text" placeholder="城市或机场"></div>
+        </div>
+        <div class="f2">
+          <div class="field"><label for="fdate">货物就绪日期</label><input id="fdate" type="date"></div>
+          <div class="field"><label for="fflex">日期弹性</label>
+            <select id="fflex"><option>日期固定</option><option>±3 天</option><option>±2 周</option><option>日期待定</option></select>
+          </div>
+        </div>
+        <div class="field"><label for="fserv">需要我们做什么</label>
+          <select id="fserv"><option>仅空运（机场到机场）</option><option>含送达始发机场</option><option>门到门（含清关）</option></select>
+        </div>
+        <div class="nav-btns"><button class="btn ghost" data-go="1">上一步</button><button class="btn dark" data-go="3">下一步 <span class="ar">→</span></button></div>
+      </div>
+      <div class="panel" data-panel="3">
+        <div class="f2">
+          <div class="field"><label for="fco">公司</label><input id="fco" type="text" placeholder="示例有限公司"></div>
+          <div class="field"><label for="fnm">您的姓名</label><input id="fnm" type="text" placeholder="姓名"></div>
+        </div>
+        <div class="f2">
+          <div class="field"><label for="fph">电话或即时通讯</label><input id="fph" type="tel" placeholder="+7 ..."></div>
+          <div class="field"><label for="fem">E-mail</label><input id="fem" type="email" placeholder="name@company.com"></div>
+        </div>
+        <div class="field"><label for="fcm">备注</label><textarea id="fcm" rows="2" placeholder="特殊要求、时限、文件"></textarea></div>
+        <label class="agree" id="agreelab"><input type="checkbox" id="agree"> <span>本人同意处理个人数据。 <a href="about.html#docs" style="color:var(--amber-deep);">隐私政策</a></span></label>
+        <div class="nav-btns"><button class="btn ghost" data-go="2">上一步</button><button class="btn" id="send">提交询价 <span class="ar">→</span></button></div>
+      </div>
+      <div class="done" id="done">
+        <span class="lab">询价已收到</span>
+        <p class="big" id="donebig">我们将在18:40前回复</p>
+        <p>询价编号&nbsp;<span class="mono" id="num" style="color:var(--amber-deep);font-weight:600;">VD-000000</span> 已转至包机值班经理。初步运价将发送至您的邮箱。</p>
+        <p class="hint">这是原型演示——询价不会真正发送。</p>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap fgrid">
+    <div>
+      <span class="lab cool">所有问题的统一入口</span>
+      <a class="contact-big" href="request.html">+7 495 755 68 50</a>
+      <a class="contact-mail" href="request.html">sales@volga-dnepr.com</a>
+      <div class="msgrow">
+        <a class="msg" href="request.html#contacts">WhatsApp</a>
+        <a class="msg" href="request.html#contacts">Telegram</a>
+        <a class="msg" href="request.html#contacts">预约回电</a>
+      </div>
+      <p class="contact-sub">全天候服务，节假日无休。包机值班经理通过手机号在即时通讯工具中回复。</p>
+    </div>
+    <div class="fcol">
+      <span class="lab cool">运输服务</span>
+      <a href="charter.html">包机航班</a>
+      <a href="regular.html">定期航班</a>
+      <a href="charter.html#multi">多式联运</a>
+      <a href="fleet.html">机队与舱位尺寸</a>
+      <a href="cases.html">案例</a>
+    </div>
+    <div class="fcol">
+      <span class="lab cool">公司</span>
+      <a href="about.html">关于我们</a>
+      <a href="about.html#docs">招标文件</a>
+      <a href="about.html#history">发展历程</a>
+      <a href="request.html">联系方式</a>
+    </div>
+  </div>
+  <div class="wrap fnote">
+    <span>© 伏尔加-第聂伯 · 网站原型</span>
+    <span>演示数据——需替换为核实信息</span>
+    <span>RU / EN / 中文 — 请使用页眉中的语言切换</span>
+  </div>
+</footer>
+<script src="../assets/worldmap.js"></script>
+<script src="../assets/app.js"></script>
+</body>
+</html>

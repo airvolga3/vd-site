@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Рассчитать перевозку — Волга-Днепр</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="ribbon">Прототип · демо-данные · перед публикацией заменить на подтверждённые цифры</div>
+<header class="site">
+  <div class="wrap hrow">
+    <a class="logo" href="index.html">
+      <span class="plate"><img src="img/logo.png" alt="Волга-Днепр" onerror="this.closest('.logo').classList.add('nolg')"></span>
+      <span class="tx">ВОЛГА-ДНЕПР<small>CARGO · SINCE 1990</small></span>
+    </a>
+    <nav class="main">
+      <a href="charter.html">Чартер</a>
+      <a href="regular.html">Регулярные</a>
+      <a href="fleet.html">Флот</a>
+      <a href="cases.html">Кейсы</a>
+      <a href="about.html">О компании</a>
+    </nav>
+    <div class="hactions">
+      <div class="lang"><b>RU</b><a href="en/request.html">EN</a><a href="zh/request.html">中文</a></div>
+      <a class="hlink" href="regular.html#dirs">Расписание</a>
+      <a class="btn" href="request.html">Рассчитать <span class="ar">→</span></a>
+      <button class="burger" id="burger" aria-label="Меню">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mmenu" id="mmenu">
+  <button class="close" id="mclose" aria-label="Закрыть">✕</button>
+  <a href="charter.html">Чартер</a>
+  <a href="regular.html">Регулярные рейсы</a>
+  <a href="fleet.html">Флот</a>
+  <a href="cases.html">Кейсы</a>
+  <a href="about.html">О компании</a>
+  <a href="request.html">Рассчитать перевозку</a>
+  <div class="mlang"><b>RU</b><a href="en/request.html">EN</a><a href="zh/request.html">中文</a></div>
+</div>
+
+<section class="formsec" id="request" style="padding-top:170px;">
+  <div class="fbg"><img src="img/gear.jpg" alt=""></div>
+  <div class="wrap form-grid">
+    <div class="rv">
+      <span class="lab">Заявка · три шага</span>
+      <h2 style="margin-top:14px;">Контакты — <span class="lt">только на последнем шаге</span></h2>
+      <div class="why-list">
+        <div class="it"><span class="ic">01</span><p><strong>Спрашиваем то, от чего зависит ставка</strong>Вес, габарит и характер груза — без них любой расчёт превращается в переписку.</p></div>
+        <div class="it"><span class="ic">02</span><p><strong>Ответ за 4 рабочих часа</strong>Предварительная ставка и подтверждение доступности борта. Срочные — круглосуточный дежурный.</p></div>
+        <div class="it"><span class="ic">03</span><p><strong>Один вход для всех услуг</strong>Чартер, регулярные рейсы, мультимодальная доставка — одна форма, один менеджер.</p></div>
+      </div>
+      <div id="contacts" style="margin-top:36px;display:flex;flex-direction:column;gap:10px;">
+        <span class="lab">Или напрямую</span>
+        <a href="tel:+74957556850" style="font-family:var(--disp);font-weight:800;font-size:26px;color:#fff;text-decoration:none;">+7 495 755 68 50</a>
+        <a href="mailto:sales@volga-dnepr.com" style="color:var(--amber);font-weight:600;text-decoration:none;">sales@volga-dnepr.com</a>
+        <div class="msgrow">
+          <a class="msg" style="color:#fff;border-color:rgba(255,255,255,.4);" href="#contacts">WhatsApp</a>
+          <a class="msg" style="color:#fff;border-color:rgba(255,255,255,.4);" href="#contacts">Telegram</a>
+        </div>
+      </div>
+    </div>
+    <div class="form-card rv d1">
+      <div class="steps" id="tabs">
+        <div class="step-tab on" data-step="1"><span class="sn">ШАГ 1</span><span class="st">Груз</span></div>
+        <div class="step-tab" data-step="2"><span class="sn">ШАГ 2</span><span class="st">Маршрут и срок</span></div>
+        <div class="step-tab" data-step="3"><span class="sn">ШАГ 3</span><span class="st">Контакты</span></div>
+      </div>
+      <div class="panel on" data-panel="1">
+        <div class="f2">
+          <div class="field"><label for="fw">Вес · т</label><input id="fw" type="number" step="0.1" placeholder="82"></div>
+          <div class="field"><label for="ft">Тип груза</label>
+            <select id="ft"><option>Проектный / негабаритный</option><option>Генеральный</option><option>Опасный (DGR)</option><option>Температурный режим</option><option>Живой груз</option><option>Гуманитарный</option></select>
+          </div>
+        </div>
+        <div class="f3">
+          <div class="field"><label for="fl">Длина · м</label><input id="fl" type="number" step="0.1" placeholder="9,1"></div>
+          <div class="field"><label for="fwd">Ширина · м</label><input id="fwd" type="number" step="0.1" placeholder="4,2"></div>
+          <div class="field"><label for="fh">Высота · м</label><input id="fh" type="number" step="0.1" placeholder="4,0"></div>
+        </div>
+        <div class="field"><label for="fn">Что за груз — одной строкой</label><input id="fn" type="text" placeholder="Ротор газовой турбины"></div>
+        <div class="nav-btns"><span class="hint">Ни одного контактного поля на этом шаге</span><button class="btn dark" data-go="2">Дальше <span class="ar">→</span></button></div>
+      </div>
+      <div class="panel" data-panel="2">
+        <div class="f2">
+          <div class="field"><label for="ffrom">Откуда</label><input id="ffrom" type="text" placeholder="Город или аэропорт"></div>
+          <div class="field"><label for="fto">Куда</label><input id="fto" type="text" placeholder="Город или аэропорт"></div>
+        </div>
+        <div class="f2">
+          <div class="field"><label for="fdate">Груз готов к отправке</label><input id="fdate" type="date"></div>
+          <div class="field"><label for="fflex">Гибкость по дате</label>
+            <select id="fflex"><option>Дата жёсткая</option><option>±3 дня</option><option>±2 недели</option><option>Дата пока не определена</option></select>
+          </div>
+        </div>
+        <div class="field"><label for="fserv">Что нужно от нас</label>
+          <select id="fserv"><option>Только перелёт (аэропорт — аэропорт)</option><option>С доставкой до аэропорта вылета</option><option>«От двери до двери», включая таможню</option></select>
+        </div>
+        <div class="nav-btns"><button class="btn ghost" data-go="1">Назад</button><button class="btn dark" data-go="3">Дальше <span class="ar">→</span></button></div>
+      </div>
+      <div class="panel" data-panel="3">
+        <div class="f2">
+          <div class="field"><label for="fco">Компания</label><input id="fco" type="text" placeholder="ООО «Пример»"></div>
+          <div class="field"><label for="fnm">Ваше имя</label><input id="fnm" type="text" placeholder="Имя и фамилия"></div>
+        </div>
+        <div class="f2">
+          <div class="field"><label for="fph">Телефон или мессенджер</label><input id="fph" type="tel" placeholder="+7 ..."></div>
+          <div class="field"><label for="fem">E-mail</label><input id="fem" type="email" placeholder="name@company.ru"></div>
+        </div>
+        <div class="field"><label for="fcm">Комментарий</label><textarea id="fcm" rows="2" placeholder="Особые требования, сроки, документы"></textarea></div>
+        <label class="agree" id="agreelab"><input type="checkbox" id="agree"> <span>Согласен на обработку персональных данных. <a href="about.html#docs" style="color:var(--amber-deep);">Политика конфиденциальности</a></span></label>
+        <div class="nav-btns"><button class="btn ghost" data-go="2">Назад</button><button class="btn" id="send">Отправить заявку <span class="ar">→</span></button></div>
+      </div>
+      <div class="done" id="done">
+        <span class="lab">Заявка принята</span>
+        <p class="big" id="donebig">Ответим до 18:40</p>
+        <p>Заявка №&nbsp;<span class="mono" id="num" style="color:var(--amber-deep);font-weight:600;">VD-000000</span> у дежурного менеджера по чартеру. Предварительная ставка придёт на почту.</p>
+        <p class="hint">Это прототип — заявка никуда не отправляется.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap fgrid">
+    <div>
+      <span class="lab cool">Один вход для всех вопросов</span>
+      <a class="contact-big" href="request.html">+7 495 755 68 50</a>
+      <a class="contact-mail" href="request.html">sales@volga-dnepr.com</a>
+      <div class="msgrow">
+        <a class="msg" href="request.html#contacts">WhatsApp</a>
+        <a class="msg" href="request.html#contacts">Telegram</a>
+        <a class="msg" href="request.html#contacts">Обратный звонок</a>
+      </div>
+      <p class="contact-sub">Круглосуточно, включая выходные. Дежурный по чартеру отвечает в мессенджере — с мобильного номера.</p>
+    </div>
+    <div class="fcol">
+      <span class="lab cool">Перевозки</span>
+      <a href="charter.html">Чартерные рейсы</a>
+      <a href="regular.html">Регулярные рейсы</a>
+      <a href="charter.html#multi">Мультимодальная доставка</a>
+      <a href="fleet.html">Флот и габариты</a>
+      <a href="cases.html">Кейсы</a>
+    </div>
+    <div class="fcol">
+      <span class="lab cool">Компания</span>
+      <a href="about.html">О компании</a>
+      <a href="about.html#docs">Документы для тендера</a>
+      <a href="about.html#history">История</a>
+      <a href="request.html">Контакты</a>
+    </div>
+  </div>
+  <div class="wrap fnote">
+    <span>© Волга-Днепр · прототип сайта</span>
+    <span>Демо-данные — заменить на подтверждённые</span>
+    <span>EN / 中文 — отдельными версиями страниц на этапе разработки</span>
+  </div>
+</footer>
+<script src="assets/worldmap.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
