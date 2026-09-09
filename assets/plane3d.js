@@ -298,6 +298,8 @@
   }
   if (typeof THREE.GLTFLoader !== "undefined"){
     var loader = new THREE.GLTFLoader();
+    if (typeof MeshoptDecoder !== "undefined" && loader.setMeshoptDecoder) loader.setMeshoptDecoder(MeshoptDecoder);
+    var P3 = /\/(en|zh)\//.test(location.pathname) ? "../assets/" : "assets/";
     if (window.AN124_B64){
       try {
         var bin = atob(window.AN124_B64);
@@ -306,7 +308,7 @@
         loader.parse(bytes.buffer, "", onModel, onFail);
       } catch(e){ onFail(); }
     } else {
-      loader.load("assets/an124.glb", onModel, undefined, onFail);
+      loader.load(P3 + "an124-fit.glb", onModel, undefined, onFail);
     }
   } else { msg.remove(); rebuild(); }
   rebuild();

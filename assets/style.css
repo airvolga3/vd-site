@@ -426,7 +426,8 @@ table.tth{border-collapse:collapse;width:100%;min-width:560px;font-size:15px;}
 .formsec::before{content:"";position:absolute;inset:0;z-index:1;
   background:radial-gradient(70% 60% at 85% 0%, rgba(85,169,245,.12), transparent 60%);}
 .form-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start;position:relative;z-index:2;}
-.formsec h2{color:#fff;}
+.formsec h2,.formsec h1.h2like{color:#fff;}
+h1.h2like{font-weight:700;font-size:clamp(24px,2.8vw,37px);line-height:1.16;letter-spacing:-.015em;}
 .why-list{display:flex;flex-direction:column;gap:22px;margin-top:32px;}
 .why-list .it{display:grid;grid-template-columns:44px 1fr;gap:16px;}
 .why-list .it .ic{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.08);

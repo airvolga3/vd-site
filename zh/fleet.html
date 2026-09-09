@@ -33,7 +33,7 @@
 <header class="site">
   <div class="wrap hrow">
     <a class="logo" href="index.html">
-      <span class="plate"><img src="../img/logo.png" alt="伏尔加-第聂伯" onerror="this.closest('.logo').classList.add('nolg')"></span>
+      <span class="plate"><img width="892" height="193" src="../img/logo.png" alt="伏尔加-第聂伯" onerror="this.closest('.logo').classList.add('nolg')"></span>
       <span class="tx">伏尔加-第聂伯<small>CARGO · SINCE 1990</small></span>
     </a>
     <nav class="main">
@@ -68,7 +68,7 @@
   <div class="mlang"><a href="../fleet.html">RU</a><a href="../en/fleet.html">EN</a><b>中文</b></div>
 </div>
 <div class="phero">
-  <div class="hero-bg"><img src="../img/rain.jpg" alt="" style="object-position:70% 45%;"></div>
+  <div class="hero-bg"><img width="1680" height="878" src="../img/rain.jpg" alt="" style="object-position:70% 45%;"></div>
   <div class="wrap phero-in">
     <div class="crumbs"><a href="index.html">首页</a> · 机队</div>
     <h1>独一无二的机队</h1>
@@ -190,7 +190,7 @@
   var loaded=false;
   var P=/\/(en|zh)\//.test(location.pathname)?"../assets/":"assets/";
   function load(){ if(loaded) return; loaded=true;
-    ["three.min.js","GLTFLoader.js","an124-data.js","plane3d.js"].reduce(function(p,src){
+    ["three.min.js","GLTFLoader.js","meshopt_decoder.js","plane3d.js"].reduce(function(p,src){
       return p.then(function(){ return new Promise(function(res){
         var s=document.createElement("script"); s.src=P+src; s.onload=res; s.onerror=res; document.body.appendChild(s); }); });
     }, Promise.resolve());
