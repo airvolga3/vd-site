@@ -19,9 +19,12 @@
 <meta name="theme-color" content="#141D26">
 <link rel="icon" type="image/png" href="../img/favicon.png">
 <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="preload" href="../assets/fonts/golos-text-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/golos-text-cyrillic-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/fonts.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap">
 <link rel="stylesheet" href="../assets/style.css">
 <style>:root{--disp:"Golos Text","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;--body:"Golos Text","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;}</style>
 </head>
@@ -46,6 +49,7 @@
     <div class="hactions">
       <div class="lang"><a href="../index.html">RU</a><a href="../en/index.html">EN</a><b>中文</b></div>
       <a class="hlink" href="regular.html#dirs">时刻表</a>
+      <a class="hlink htel" href="tel:+74957556850">+7 495 755 68 50</a>
       <a class="btn" href="request.html">获取报价 <span class="ar">→</span></a>
       <button class="burger" id="burger" aria-label="菜单">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -67,33 +71,39 @@
 </div>
 
 
-<div class="hero">
-  <div class="fog f1"></div><div class="fog f2"></div>
-  <div class="breathe"></div>
+<section class="hero hero-v2" aria-label="首屏">
   <canvas class="rain" id="rain"></canvas>
-  <div class="hero-bg"><img src="../img/rain.jpg" alt="跑道上的伏尔加-第聂伯安-124"></div>
+  <div class="hero-bg">
+    <img src="../img/hero-load.webp" srcset="../img/hero-load-m.webp 960w, ../img/hero-load.webp 1672w" sizes="100vw" width="1672" height="941" fetchpriority="high" decoding="async" alt="夜间停机坪上，航天器经伏尔加-第聂伯安-124机头舱门装载">
+  </div>
   <div class="wrap hero-in">
     <div class="hero-copy">
       <div class="kicker up"><span>项目物流与超重货运</span> <span class="script">始于1990年</span></div>
       <h1><span class="l1 up u1">装不进任何其他飞机的货物</span><span class="l2 up u2">由我们来运送</span></h1>
-      <p class="sub up u3">安-124与伊尔-76机队、自有装载设备与货物规划中心。承运1至150吨。</p>
+      <p class="sub up u3">安-124与伊尔-76。从燃气轮机到航天器——全程一份合同、一位经理。</p>
       <div class="hero-cta up u4">
         <a class="btn lg" href="request.html">获取报价 <span class="ar">→</span></a>
-        <a class="link-cta" href="fleet.html#fit">3D试装您的货物 <span class="ar">→</span></a>
       </div>
-      <div class="promise-badge up u5"><span class="dot"></span> 4个工作小时内提供初步报价</div>
     </div>
   </div>
-  <div class="hero-strip">
-    <div class="wrap statline up u5">
-      <div class="st"><div class="v"><span class="cnt" data-to="150">0</span><small> 吨</small></div><div class="k">最大载重</div></div>
-      <div class="st"><div class="v"><span class="cnt" data-to="1050">0</span><small> 立方米</small></div><div class="k">安-124货舱容积</div></div>
-      <div class="st"><div class="v"><span class="cnt" data-to="36">0</span><small>.5 米</small></div><div class="k">货舱长度</div></div>
-      <div class="st"><div class="v">24/7</div><div class="k">全天候接单</div></div>
-    </div>
-    <a class="scrollcue" href="#services" aria-label="向下滚动">
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 8l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
+  <div class="wrap qq-wrap up u5">
+    <form class="qq" id="qq" autocomplete="off" aria-label="快速航线估算">
+      <label class="qq-f"><span>出发地</span><select id="qq-from" required><option value="">城市</option></select></label>
+      <span class="qq-arrow" aria-hidden="true">→</span>
+      <label class="qq-f"><span>目的地</span><select id="qq-to" required><option value="">城市</option></select></label>
+      <label class="qq-f qq-w"><span>重量，吨</span><input id="qq-w" type="number" min="1" max="200" step="1" inputmode="numeric" placeholder="最多150"></label>
+      <button class="btn qq-go" type="submit">获取报价 <span class="ar">→</span></button>
+      <p class="qq-res" id="qq-res" role="status" aria-live="polite">距离、飞行时间与合适机型——即刻显示，无需填表。</p>
+    </form>
+  </div>
+</section>
+<div class="proof">
+  <div class="wrap proof-in">
+    <div class="st"><div class="v"><span class="cnt" data-to="150">0</span><small> 吨</small></div><div class="k">最大载重</div></div>
+    <div class="st"><div class="v"><span class="cnt" data-to="1050">0</span><small> 立方米</small></div><div class="k">安-124货舱容积</div></div>
+    <div class="st"><div class="v"><span class="cnt" data-to="36">0</span><small>.5 米</small></div><div class="k">货舱长度</div></div>
+    <div class="st promise"><div class="v"><span class="dot"></span> 4个工作小时</div><div class="k">提交询价后的初步报价</div></div>
+    <a class="st tel" href="tel:+74957556850"><div class="v">+7 495 755 68 50</div><div class="k">全天候受理询价</div></a>
   </div>
 </div>
 
@@ -344,7 +354,7 @@
   </div>
 </footer>
 
-<script src="../assets/worldmap.js"></script>
-<script src="../assets/app.js"></script>
+<script defer src="../assets/worldmap.js"></script>
+<script defer src="../assets/app.js"></script>
 </body>
 </html>

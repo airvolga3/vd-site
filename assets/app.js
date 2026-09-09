@@ -99,7 +99,7 @@
   /* ---------- локализация ---------- */
   var LANG = (document.documentElement.lang || "ru").slice(0,2);
   var LZ = {
-    ru: {ci:0, hint0:"Кликните город отправления, затем город назначения — покажу расстояние и время полёта",
+    ru: {ci:0, qqCity:"Город", qqAny:"Ил-76 или Ан-124", qq100:"Ан-124-100", qq150:"Ан-124-150", qqOver:"свыше 150 т — нужен разбор деления груза", qqFit:"подходит: ", qqSame:"Выберите два разных города", qqPick:"Выберите города отправления и назначения", qqTo:"Передать в заявку", qqStop:"возможна техпосадка", hint0:"Кликните город отправления, затем город назначения — покажу расстояние и время полёта",
       hintReset:"Кликните город отправления, затем город назначения",
       hintNext:" → теперь кликните город назначения",
       km:" км", h:" ч", m:" мин", an:"Ан-124", il:"Ил-76",
@@ -110,7 +110,7 @@
       mW:"Вес: ", mT:" т", mDims:"Габариты (Д×Ш×В): ", mM:" м", mRoute:"МАРШРУТ", mFrom:"Откуда: ", mTo:"Куда: ",
       mReady:"Готовность груза: ", mServ:"Объём услуги: ", mCont:"КОНТАКТЫ", mCo:"Компания: ", mName:"Имя: ",
       mPh:"Телефон: ", mEm:"E-mail: ", mCm:"Комментарий: ", due:"Ответим до "},
-    en: {ci:1, hint0:"Click the origin city, then the destination — I will show distance and flight time",
+    en: {ci:1, qqCity:"City", qqAny:"Il-76 or An-124", qq100:"An-124-100", qq150:"An-124-150", qqOver:"over 150 t — cargo split assessment needed", qqFit:"suitable: ", qqSame:"Choose two different cities", qqPick:"Choose origin and destination", qqTo:"Send to request form", qqStop:"technical stop possible", hint0:"Click the origin city, then the destination — I will show distance and flight time",
       hintReset:"Click the origin city, then the destination",
       hintNext:" → now click the destination city",
       km:" km", h:" h", m:" min", an:"An-124", il:"Il-76",
@@ -121,7 +121,7 @@
       mW:"Weight: ", mT:" t", mDims:"Dimensions (L×W×H): ", mM:" m", mRoute:"ROUTE", mFrom:"From: ", mTo:"To: ",
       mReady:"Cargo ready: ", mServ:"Service scope: ", mCont:"CONTACTS", mCo:"Company: ", mName:"Name: ",
       mPh:"Phone: ", mEm:"E-mail: ", mCm:"Comments: ", due:"We will reply by "},
-    zh: {ci:2, hint0:"点击出发城市，再点击目的地城市——即可显示距离和飞行时间",
+    zh: {ci:2, qqCity:"城市", qqAny:"伊尔-76 或 安-124", qq100:"安-124-100", qq150:"安-124-150", qqOver:"超过150吨——需评估分拆运输", qqFit:"适用机型：", qqSame:"请选择两个不同的城市", qqPick:"请选择出发地和目的地", qqTo:"提交询价", qqStop:"可能需要技术经停", hint0:"点击出发城市，再点击目的地城市——即可显示距离和飞行时间",
       hintReset:"点击出发城市，再点击目的地城市",
       hintNext:" → 现在请点击目的地城市",
       km:" 公里", h:" 小时", m:" 分", an:"安-124", il:"伊尔-76",
@@ -188,22 +188,7 @@
       l2.setAttribute("x1",0); l2.setAttribute("x2",W); l2.setAttribute("y1",gy); l2.setAttribute("y2",gy);
       l2.setAttribute("stroke","rgba(157,176,193,.07)"); rmap.appendChild(l2);
     }
-    /* дуги маршрутов */
-    ROUTES.forEach(function(r, i){
-      var a = xy(CITIES[r[0]][1], CITIES[r[0]][2]);
-      var b = xy(CITIES[r[1]][1], CITIES[r[1]][2]);
-      var mx = (a[0]+b[0])/2, my = Math.min(a[1],b[1]) - Math.max(40, Math.abs(a[0]-b[0])*.16);
-      var p = document.createElementNS(NS,"path");
-      p.setAttribute("d","M "+a[0]+" "+a[1]+" Q "+mx+" "+my+" "+b[0]+" "+b[1]);
-      p.setAttribute("fill","none");
-      p.setAttribute("stroke","rgba(85,169,245,.6)");
-      p.setAttribute("stroke-width","1.4");
-      p.setAttribute("stroke-dasharray","5 7");
-      if (!reduced){
-        p.style.animation = "rmdash " + (18 + i*2) + "s linear infinite";
-      }
-      rmap.appendChild(p);
-    });
+    /* демо-дуги маршрутов убраны: карта показывает только выбранный маршрут (см. rm-note) */
     /* города — кликабельные: выбор маршрута */
     var selFrom = null, selTo = null, selArc = null, dots = [];
     CITIES.forEach(function(c, ci){
@@ -297,6 +282,48 @@
         '<div class="rm-note2">' + T.est + '</div>' +
         '<div class="rm-cta"><a class="btn" href="request.html?from=' + encodeURIComponent(cname(A)) + '&to=' + encodeURIComponent(cname(B)) + '">' + T.toReq + ' <span class="ar">→</span></a><button class="rm-reset" type="button">' + T.reset + '</button></div>';
       panel.querySelector(".rm-reset").addEventListener("click", clearSel);
+    }
+
+    /* ---------- мгновенный расчёт в hero (тот же справочник городов и та же математика) ---------- */
+    var qq = $("qq");
+    if (qq){
+      var qFrom = $("qq-from"), qTo = $("qq-to"), qW = $("qq-w"), qRes = $("qq-res");
+      var order = CITIES.map(function(c,i){ return i; }).sort(function(a,b){ return cname(CITIES[a]).localeCompare(cname(CITIES[b]), LANG); });
+      [qFrom, qTo].forEach(function(sel){
+        sel.options[0].textContent = T.qqCity;
+        order.forEach(function(i){ var o = document.createElement("option"); o.value = i; o.textContent = cname(CITIES[i]); sel.appendChild(o); });
+      });
+      var pre = new URLSearchParams(location.search);
+      function preset(sel, name){ if (!name) return; for (var i = 0; i < sel.options.length; i++){ if (sel.options[i].textContent === name){ sel.value = sel.options[i].value; break; } } }
+      preset(qFrom, pre.get("from")); preset(qTo, pre.get("to"));
+      function esc(t){ return String(t).replace(/[&<>"]/g, function(ch){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]; }); }
+      qq.addEventListener("submit", function(e){
+        e.preventDefault();
+        var a = qFrom.value, b = qTo.value;
+        qRes.classList.remove("err");
+        if (a === "" || b === ""){ qRes.textContent = T.qqPick; qRes.classList.add("err"); return; }
+        if (a === b){ qRes.textContent = T.qqSame; qRes.classList.add("err"); return; }
+        var A = CITIES[+a], B = CITIES[+b], km = gcKm(A, B);
+        var w = parseFloat(String(qW.value).replace(",", "."));
+        var fit = "", stops = [];
+        if (w > 150) fit = '<span class="warn">' + T.qqOver + '</span>';
+        else if (w > 120) fit = T.qq150;
+        else if (w > 40)  fit = T.qq100;
+        else if (w > 0)   fit = T.qqAny;
+        if (km > 4500) stops.push(T.an);
+        if (km > 4000 && !(w > 40)) stops.push(T.il);
+        var href = "request.html?from=" + encodeURIComponent(cname(A)) + "&to=" + encodeURIComponent(cname(B)) + (w > 0 ? "&weight=" + encodeURIComponent(w) : "");
+        qRes.innerHTML =
+          '<span><b>' + esc(cname(A)) + '</b> → <b>' + esc(cname(B)) + '</b></span>' +
+          '<span class="km">' + km.toLocaleString("ru-RU") + T.km + '</span>' +
+          '<span>' + T.an + ' <b>' + fmtH(km/800 + 0.6) + '</b></span>' +
+          '<span>' + T.il + ' <b>' + fmtH(km/750 + 0.6) + '</b></span>' +
+          (fit ? '<span>' + T.qqFit + '<span class="ac">' + fit + '</span></span>' : '') +
+          (stops.length ? '<span class="warn">' + stops.join(T.and) + ': ' + T.qqStop + '</span>' : '') +
+          '<a href="' + href + '">' + T.qqTo + ' →</a>';
+        /* подсветить тот же маршрут на карте ниже */
+        if (typeof clearSel === "function"){ clearSel(); pick(+a); pick(+b); }
+      });
     }
 
     var st = document.createElement("style");
@@ -413,6 +440,8 @@
       var q = new URLSearchParams(location.search);
       if (q.get("from")) ffrom.value = q.get("from");
       if (q.get("to")) fto.value = q.get("to");
+      var fw = $("weight"), qw = parseFloat(q.get("weight"));
+      if (fw && qw > 0 && qw <= 200) fw.value = qw;
     } catch(e){}
   })();
 
