@@ -745,3 +745,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 64px;background:#fff;}
   linear-gradient(180deg,rgba(20,29,38,.46) 0%,rgba(20,29,38,.06) 26%,rgba(20,29,38,.12) 56%,rgba(20,29,38,.9) 100%),
   linear-gradient(90deg,rgba(20,29,38,.78) 0%,rgba(20,29,38,.42) 34%,rgba(20,29,38,0) 62%);}
 @media (max-width:700px){ .hero-v2 .hero-bg img{object-position:40% 50%;} .hero-v2 .hero-in,.hero-v2 .qq-wrap{padding-left:20px;padding-right:20px;} }
+
+/* примерка груза: предупреждение о скруглённом потолке */
+.rrow .tag.w{background:#FFF3DF;color:#8A5200;}
+.rrow.warn{border-color:#E8C48A;}
+.roof-note{font-size:12.5px;color:var(--ink-2);margin:10px 0 0;line-height:1.45;}

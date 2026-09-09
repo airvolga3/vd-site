@@ -7,12 +7,41 @@
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* длина фюзеляжа задаёт масштаб модели; cab — грузовая кабина, floorY — высота пола над землёй */
+  var LANG = (document.documentElement.lang || "ru").slice(0,2);
+  var TX = {
+    ru:{fit:"влезает", no:"не влезает", warn:"проверка по чертежу", cab:"кабина", upto:"до", cargo:"груз", t:"т", m:"м",
+        scaled:"силуэт масштабирован из модели Ан-124 — до получения модели Ил-76",
+        roof:"Верхние углы груза упираются в скруглённый потолок кабины — по габаритам проходит, но нужна проверка по чертежу сечения.",
+        fail:"Модель не загрузилась — показываю только кабину и груз", an:"Ан-124", il:"Ил-76"},
+    en:{fit:"fits", no:"does not fit", warn:"drawing check", cab:"cabin", upto:"up to", cargo:"cargo", t:"t", m:"m",
+        scaled:"silhouette scaled from the An-124 model until an Il-76 model is available",
+        roof:"The upper corners of the cargo reach the curved cabin roof — within nominal dimensions, but a cross-section drawing check is required.",
+        fail:"Model failed to load — showing cabin and cargo only", an:"An-124", il:"Il-76"},
+    zh:{fit:"可装载", no:"无法装载", warn:"需图纸校核", cab:"货舱", upto:"最多", cargo:"货物", t:"吨", m:"米",
+        scaled:"轮廓按安-124模型缩放，待获取伊尔-76模型",
+        roof:"货物上角触及弧形舱顶——名义尺寸内，但需按截面图纸校核。",
+        fail:"模型未能加载——仅显示货舱与货物", an:"安-124", il:"伊尔-76"}
+  }[LANG] || null;
+  if (!TX) TX = {fit:"влезает", no:"не влезает", warn:"проверка по чертежу", cab:"кабина", upto:"до", cargo:"груз", t:"т", m:"м", scaled:"", roof:"", fail:"", an:"Ан-124", il:"Ил-76"};
+  /* profile — ориентировочный контур скруглённого потолка: [полуширина, высота над полом];
+     снят с внутренней геометрии модели, не чертёж. Используется только для предупреждения. */
+  var PROFILE_AN = [[0,4.75],[0.8,4.75],[1.6,4.75],[2.28,4.75],[2.4,4.53],[2.8,3.82],[3.2,3.11]];
+  var PROFILE_IL = [[0,3.73],[0.43,3.69],[0.86,3.57],[1.29,3.36],[1.5,3.21],[1.725,3.02]];
   var AIRCRAFT = [
-    { name:"Ан-124", fusLen:69.0, cab:{L:36.5, W:6.4, H:4.4}, floorY:2.2, cabShift:0, P:150,
-      note:"кабина 36,5 × 6,4 × 4,4 м · до 150 т", scaled:false },
-    { name:"Ил-76", fusLen:46.6, cab:{L:20.0, W:3.45, H:3.4}, floorY:1.9, cabShift:0, P:50,
-      note:"кабина 20,0 × 3,45 × 3,4 м · до 50 т", scaled:true }
+    { name:TX.an, fusLen:69.0, cab:{L:36.5, W:6.4, H:4.4}, floorY:2.2, cabShift:0, P:150, profile:PROFILE_AN,
+      note:TX.cab+" 36,5 × 6,4 × 4,4 "+TX.m+" · "+TX.upto+" 150 "+TX.t, scaled:false },
+    { name:TX.il, fusLen:46.6, cab:{L:20.0, W:3.45, H:3.4}, floorY:1.9, cabShift:0, P:50, profile:PROFILE_IL,
+      note:TX.cab+" 20,0 × 3,45 × 3,4 "+TX.m+" · "+TX.upto+" 50 "+TX.t, scaled:true }
   ];
+  function roofAt(halfW, prof, H){
+    if (halfW > prof[prof.length-1][0]) return 0;
+    for (var i=1;i<prof.length;i++) if (halfW <= prof[i][0]){
+      var k = (halfW - prof[i-1][0]) / (prof[i][0] - prof[i-1][0]);
+      return Math.min(H, prof[i-1][1] + k*(prof[i][1]-prof[i-1][1]));
+    }
+    return Math.min(H, prof[0][1]);
+  }
+  function roofConflict(w, h, prof, H, W){ return w > 0 && h > 0 && w <= W && h <= H && h > roofAt(w/2, prof, H); }
   var curAC = 0;
 
   function val(id){
@@ -225,6 +254,18 @@
     fill.position.copy(wire.position);
     fill.renderOrder = 1; wire.renderOrder = 2;
     cabinGroup.add(fill); cabinGroup.add(wire);
+    /* ориентировочный контур скруглённого потолка — три арки по длине кабины */
+    if (a.profile){
+      var arch = a.profile.slice().reverse().map(function(q){ return [-q[0], Math.min(q[1], a.cab.H)]; })
+        .concat(a.profile.slice(1).map(function(q){ return [q[0], Math.min(q[1], a.cab.H)]; }));
+      [-0.3, 0, 0.3].forEach(function(part){
+        var x = a._shift + a._visL * part, pts = [new THREE.Vector3(x, a._floorY, -a.cab.W/2)];
+        arch.forEach(function(q){ pts.push(new THREE.Vector3(x, a._floorY + q[1], q[0])); });
+        pts.push(new THREE.Vector3(x, a._floorY, a.cab.W/2));
+        var ln = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), MAT.cabLine);
+        ln.renderOrder = 2; cabinGroup.add(ln);
+      });
+    }
     scene.add(cabinGroup);
     updateCargo();
   }
@@ -259,8 +300,8 @@
     var hud = document.getElementById("hud");
     if (hud){
       hud.innerHTML = "<b>" + a.name + "</b> · " + a.note +
-        (a.scaled ? "<br>силуэт масштабирован из модели Ан-124 — до получения модели Ил-76" : "") +
-        (ln+w+h>0 ? "<br>груз " + fmt(ln) + " × " + fmt(w) + " × " + fmt(h) + " м · " + fmt(wt) + " т" : "");
+        (a.scaled ? "<br>" + TX.scaled : "") +
+        (ln+w+h>0 ? "<br>" + TX.cargo + " " + fmt(ln) + " × " + fmt(w) + " × " + fmt(h) + " " + TX.m + " · " + fmt(wt) + " " + TX.t : "");
     }
     renderVerdicts();
   }
@@ -270,18 +311,24 @@
     if (!res) return;
     var wt = val("weight"), l = val("l"), wd = val("w"), h = val("h");
     res.innerHTML = "";
+    var anyRoof = false;
     [
-      {n:"Ил-76ТД-90ВД", L:20.0, W:3.45, H:3.4, P:50,  sp:"20,0 × 3,45 × 3,4 м · 50 т"},
-      {n:"Ан-124-100",   L:36.5, W:6.4,  H:4.4, P:120, sp:"36,5 × 6,4 × 4,4 м · 120 т"},
-      {n:"Ан-124-150",   L:36.5, W:6.4,  H:4.4, P:150, sp:"36,5 × 6,4 × 4,4 м · 150 т"}
+      {n:TX.il+"ТД-90ВД".replace("ТД-90ВД", LANG==="ru"?"ТД-90ВД":"TD-90VD"), L:20.0, W:3.45, H:3.4, P:50,  prof:PROFILE_IL, sp:"20,0 × 3,45 × 3,4 "+TX.m+" · 50 "+TX.t},
+      {n:TX.an+"-100",   L:36.5, W:6.4,  H:4.4, P:120, prof:PROFILE_AN, sp:"36,5 × 6,4 × 4,4 "+TX.m+" · 120 "+TX.t},
+      {n:TX.an+"-150",   L:36.5, W:6.4,  H:4.4, P:150, prof:PROFILE_AN, sp:"36,5 × 6,4 × 4,4 "+TX.m+" · 150 "+TX.t}
     ].forEach(function(A){
       var fits = (l<=A.L)&&(wd<=A.W)&&(h<=A.H)&&(wt<=A.P)&&(l+wd+h+wt>0);
+      var roof = fits && roofConflict(wd, h, A.prof, A.H, A.W);
+      if (roof) anyRoof = true;
       var row = document.createElement("div");
-      row.className = "rrow" + (fits ? " fit" : "");
+      row.className = "rrow" + (fits ? (roof ? " fit warn" : " fit") : "");
       row.innerHTML = '<span class="nm">'+A.n+'<br><span class="sp">'+A.sp+'</span></span>' +
-        '<span class="tag '+(fits?'y">влезает':'n">не влезает')+'</span>';
+        '<span class="tag '+(fits ? (roof ? 'w">'+TX.warn : 'y">'+TX.fit) : 'n">'+TX.no)+'</span>';
       res.appendChild(row);
     });
+    if (anyRoof){
+      var note = document.createElement("p"); note.className = "roof-note"; note.textContent = TX.roof; res.appendChild(note);
+    }
   }
 
   /* загрузка модели: сперва из упакованного скрипта (работает с file://),
@@ -292,7 +339,7 @@
     rebuild();
   }
   function onFail(){
-    msg.textContent = "Модель не загрузилась — показываю только кабину и груз";
+    msg.textContent = TX.fail;
     setTimeout(function(){ msg.remove(); }, 3500);
     rebuild();
   }
