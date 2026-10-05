@@ -1,4 +1,5 @@
-/* Волга-Днепр · примерка груза в НАСТОЯЩЕЙ модели Ан-124 (Ил-76 — только справочные габариты, своей модели нет).
+/* Волга-Днепр · примерка груза в настоящих 3D-моделях: Ан-124 (an124-fit.glb, куплена)
+   и Ил-76 (il76-fit.glb — helijah, Sketchfab, CC BY 4.0, подпись автора на странице).
    Корпус самолёта — «рентген» (полупрозрачный), внутри — янтарный каркас
    грузовой кабины и груз клиента в реальном масштабе. */
 (function(){
@@ -27,8 +28,12 @@
      снят с внутренней геометрии модели, не чертёж. Используется только для предупреждения. */
   var PROFILE_AN = [[0,4.75],[0.8,4.75],[1.6,4.75],[2.28,4.75],[2.4,4.53],[2.8,3.82],[3.2,3.11]];
   var AIRCRAFT = [
-    { name:TX.an, fusLen:69.0, cab:{L:36.5, W:6.4, H:4.4}, floorY:2.2, cabShift:0, P:150, profile:PROFILE_AN,
-      note:TX.cab+" 36,5 × 6,4 × 4,4 "+TX.m+" · "+TX.upto+" 150 "+TX.t }
+    { name:TX.an, file:"an124-fit.glb", fusLen:69.0, cab:{L:36.5, W:6.4, H:4.4}, floorY:2.2, cabShift:0, P:150, profile:PROFILE_AN,
+      note:TX.cab+" 36,5 × 6,4 × 4,4 "+TX.m+" · "+TX.upto+" 150 "+TX.t },
+    { name:TX.il + (LANG==="ru"?"ТД-90ВД":"TD-90VD"), file:"il76-fit.glb", fusLen:46.6, cab:{L:20.0, W:3.45, H:3.4}, floorY:2.4, cabShift:-4.0, P:50, profile:null,
+      /* кабина поставлена по обмеру модели: от кабины экипажа до начала рампы, пол на 1,3 м ниже оси */
+      fixed:true,
+      note:TX.cab+" 20,0 × 3,45 × 3,4 "+TX.m+" · "+TX.upto+" 50 "+TX.t }
   ];
   function roofAt(halfW, prof, H){
     if (halfW > prof[prof.length-1][0]) return 0;
@@ -95,13 +100,14 @@
     strap: new THREE.MeshStandardMaterial({color:0xC9902E, metalness:.2, roughness:.6})
   };
 
-  var baseModel = null;      /* нормализованная модель (длина 1.0 по X, на земле) */
+  /* нормализованные модели (длина 1.0 по X, на земле) лежат в AIRCRAFT[i].base */
   var planeGroup = null;     /* текущий экземпляр под выбранный борт */
   var cargoGroup = null, cabinGroup = null;
 
   var msg = document.createElement("div");
   msg.style.cssText = "position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#9DB0C1;font-size:14px;pointer-events:none;z-index:4;";
-  msg.textContent = "Загружаю модель самолёта…";
+  var LOADING = {ru:"Загружаю модель самолёта…", en:"Loading the aircraft model…", zh:"正在加载飞机模型…"}[LANG] || "Загружаю модель самолёта…";
+  msg.textContent = LOADING;
   stage.appendChild(msg);
 
   function normalizeModel(gltfScene){
@@ -219,14 +225,14 @@
     if (cabinGroup){ scene.remove(cabinGroup); cabinGroup = null; }
     /* запасные значения (без модели): честные размеры, масштаб 1:1 */
     a._floorY = a.floorY; a._shift = a.cabShift; a._visL = a.cab.L; a._kX = 1;
-    if (baseModel){
-      planeGroup = baseModel.clone();
+    if (a.base){
+      planeGroup = a.base.clone();
       planeGroup.scale.setScalar(a.fusLen);
-      planeGroup.position.y = baseModel.userData.groundOffset * a.fusLen;
+      planeGroup.position.y = a.base.userData.groundOffset * a.fusLen;
       planeGroup.renderOrder = 3;
       planeGroup.traverse(function(o){ o.renderOrder = 3; });
       scene.add(planeGroup);
-      var fit = measureHull(a);
+      var fit = a.fixed ? null : measureHull(a);
       if (fit){
         var k = a.fusLen / 69.0;
         a._floorY = fit.floorY + 0.6 * k;
@@ -309,7 +315,7 @@
     res.innerHTML = "";
     var anyRoof = false;
     [
-      {n:TX.il+"ТД-90ВД".replace("ТД-90ВД", LANG==="ru"?"ТД-90ВД":"TD-90VD"), L:20.0, W:3.45, H:3.4, P:50,  prof:null, sp:"20,0 × 3,45 × 3,4 "+TX.m+" · 50 "+TX.t+" · "+TX.ref},
+      {n:TX.il+"ТД-90ВД".replace("ТД-90ВД", LANG==="ru"?"ТД-90ВД":"TD-90VD"), L:20.0, W:3.45, H:3.4, P:50,  prof:null, sp:"20,0 × 3,45 × 3,4 "+TX.m+" · 50 "+TX.t},
       {n:TX.an+"-100",   L:36.5, W:6.4,  H:4.4, P:120, prof:PROFILE_AN, sp:"36,5 × 6,4 × 4,4 "+TX.m+" · 120 "+TX.t},
       {n:TX.an+"-150",   L:36.5, W:6.4,  H:4.4, P:150, prof:PROFILE_AN, sp:"36,5 × 6,4 × 4,4 "+TX.m+" · 150 "+TX.t}
     ].forEach(function(A){
@@ -327,33 +333,32 @@
     }
   }
 
-  /* загрузка модели: сперва из упакованного скрипта (работает с file://),
-     иначе — обычным путём; без модели сцена показывает кабину и груз */
-  function onModel(gltf){
-    baseModel = normalizeModel(gltf.scene);
-    msg.remove();
-    rebuild();
-  }
-  function onFail(){
-    msg.textContent = TX.fail;
-    setTimeout(function(){ msg.remove(); }, 3500);
-    rebuild();
-  }
+  /* загрузка моделей: каждая — один раз, по требованию; без модели сцена показывает кабину и груз */
+  var loader = null;
   if (typeof THREE.GLTFLoader !== "undefined"){
-    var loader = new THREE.GLTFLoader();
+    loader = new THREE.GLTFLoader();
     if (typeof MeshoptDecoder !== "undefined" && loader.setMeshoptDecoder) loader.setMeshoptDecoder(MeshoptDecoder);
-    var P3 = /\/(en|zh)\//.test(location.pathname) ? "../assets/" : "assets/";
-    if (window.AN124_B64){
-      try {
-        var bin = atob(window.AN124_B64);
-        var bytes = new Uint8Array(bin.length);
-        for (var bi = 0; bi < bin.length; bi++) bytes[bi] = bin.charCodeAt(bi);
-        loader.parse(bytes.buffer, "", onModel, onFail);
-      } catch(e){ onFail(); }
-    } else {
-      loader.load(P3 + "an124-fit.glb", onModel, undefined, onFail);
-    }
-  } else { msg.remove(); rebuild(); }
+  }
+  var P3 = /\/(en|zh)\//.test(location.pathname) ? "../assets/" : "assets/";
+  function loadModel(i){
+    var a = AIRCRAFT[i];
+    if (!loader){ msg.remove(); rebuild(); return; }
+    if (a.base || a.loading || a.failed) return;
+    a.loading = true;
+    loader.load(P3 + a.file, function(gltf){
+      a.loading = false;
+      a.base = normalizeModel(gltf.scene);
+      if (curAC === i){ msg.remove(); rebuild(); }
+    }, undefined, function(){
+      a.loading = false; a.failed = true;
+      if (curAC === i){
+        msg.textContent = TX.fail;
+        setTimeout(function(){ msg.remove(); }, 3500);
+        rebuild();
+      }
+    });
+  }
+  loadModel(0);
   rebuild();
 
   /* камера-орбита */
@@ -406,6 +411,10 @@
       document.querySelectorAll(".actab").forEach(function(x){ x.classList.toggle("on", x===t); });
       dist = 0;
       rebuild();
+      if (!AIRCRAFT[curAC].base && !AIRCRAFT[curAC].failed){
+        msg.textContent = LOADING; if (!msg.parentNode) stage.appendChild(msg);
+        loadModel(curAC);
+      }
     });
   });
 

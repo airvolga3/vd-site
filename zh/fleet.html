@@ -99,7 +99,7 @@
   <div class="wrap fit-grid">
     <div class="fit-copy rv">
       <span class="lab">货物试装 · 无需经理</span>
-      <h2 style="margin-top:12px;">您的货物装得下吗？<span class="lt">在真实的安-124模型中试一试</span></h2>
+      <h2 style="margin-top:12px;">您的货物装得下吗？<span class="lt">在安-124和伊尔-76模型中试一试</span></h2>
       <p class="sub">输入重量和尺寸——货物将按比例出现在真实的飞机3D模型内。机身半透明，货舱高亮。鼠标旋转，滚轮缩放。此为初步核对：最终结论以货物规划中心为准。</p>
       <div class="fields">
         <div class="field"><label for="weight">重量 · 吨</label><input id="weight" type="number" min="0" step="0.1" value="82"></div>
@@ -112,13 +112,14 @@
     <div class="viz-card rv d1">
       <div class="viz-head">
         <div class="t">3D货舱<small>鼠标或手指旋转</small></div>
-        <div class="actabs"><span class="actab on">安-124 · 真实模型</span></div>
+        <div class="actabs"><button class="actab on" type="button" data-ac="0">安-124</button><button class="actab" type="button" data-ac="1">伊尔-76</button></div>
       </div>
       <div class="stage" id="stage3d" style="height:360px;">
         <div class="hud" id="hud"></div>
         <div class="drag"><svg width="18" height="12" viewBox="0 0 18 12" fill="none"><path d="M1 6h16M13 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>旋转</div>
       </div>
       <div class="verdict" id="res"></div>
+      <p class="credit">伊尔-76 3D模型： <a href="https://sketchfab.com/3d-models/ilyushin-il-76-ab71a5f790f940798cc755246a7a8a7f" target="_blank" rel="noopener">helijah</a>，许可协议 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></p>
     </div>
   </div>
 </section>
