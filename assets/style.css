@@ -755,3 +755,22 @@ footer{border-top:1px solid var(--line);padding:56px 0 64px;background:#fff;}
    оставляем телефон, а саму шапку делаем шире основной колонки, чтобы кнопка не упиралась в край */
 a.hlink:not(.htel){display:none;}
 header.site .wrap{max-width:1340px;}
+
+/* главная на телефоне (10.2026): карточки услуг, флота, кейсов и шаги процесса —
+   лентой с прокруткой вбок вместо стопки; страница короче почти вдвое */
+@media (max-width:620px){
+  .home .tiles,.home #fleet .fleet2,.home #cases .cases,.home .proc{
+    display:flex;gap:14px;overflow-x:auto;overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+    margin:0 -20px;padding:6px 20px 22px;scroll-padding:0 20px;}
+  .home .tiles::-webkit-scrollbar,.home #fleet .fleet2::-webkit-scrollbar,
+  .home #cases .cases::-webkit-scrollbar,.home .proc::-webkit-scrollbar{display:none;}
+  .home .tiles>*,.home #fleet .fleet2>*,.home #cases .cases>*{flex:0 0 86%;scroll-snap-align:start;}
+  .home .proc>*{flex:0 0 72%;scroll-snap-align:start;}
+  .home .tile{min-height:320px;}
+  .home .fcard .fimg{height:150px;}
+  .home .afigs{grid-template-columns:repeat(3,1fr);gap:8px;}
+  .home .afig{padding:10px;}
+  .home .afig .v{font-size:18px;}
+  .home .bigyear{display:none;}
+}
