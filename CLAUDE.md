@@ -21,8 +21,7 @@
 en/  zh/        по 9 страниц, полные переводы
 assets/         style.css (переменные темы в :root; блок «hero v2» в конце), app.js,
                 fonts.css + fonts/ — Golos Text локально (5 весов, кириллица+латиница),
-                plane3d.js + three.min.js + GLTFLoader.js + meshopt_decoder.js + an124-fit.glb (0,5 МБ, meshopt) — 3D-примерка груза;
-                Ил-76 в примерке — схематичная модель, собранная в plane3d.js (buildIl76) по габаритам, без файла,
+                plane3d.js + three.min.js + GLTFLoader.js + meshopt_decoder.js + an124-fit.glb (0,5 МБ, meshopt) — 3D-примерка груза,
                 worldmap.js — карта маршрутов
 img/            изображения
 tools/          translate.py + i18n.tsv — сборка en/ и zh/ из RU
@@ -88,8 +87,5 @@ robots.txt, sitemap.xml
 на карту и в быстрый расчёт. Всё, что демо, перечислено в DATA-REVISION.md.
 Открыто: реальные данные по DATA-REVISION.md, бэкенд заявок (решение владельца —
 mailto), ретушь/замена AI-кадров, лицензия 3D-модели.
-
-В примерку вернулся Ил-76: своя схематичная модель по габаритам (фюзеляж,
-высокоплан, Т-хвост, 4 двигателя), вкладки Ан-124 / Ил-76, профиль свода для предупреждения.
 
 *Раздел обновляется в конце каждой сессии.*
