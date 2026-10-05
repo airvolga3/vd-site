@@ -750,3 +750,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 64px;background:#fff;}
 .rrow .tag.w{background:#FFF3DF;color:#8A5200;}
 .rrow.warn{border-color:#E8C48A;}
 .roof-note{font-size:12.5px;color:var(--ink-2);margin:10px 0 0;line-height:1.45;}
+
+/* шапка на широких экранах (10.2026): «Расписание» дублирует пункт «Регулярные» —
+   оставляем телефон, а саму шапку делаем шире основной колонки, чтобы кнопка не упиралась в край */
+a.hlink:not(.htel){display:none;}
+header.site .wrap{max-width:1340px;}
