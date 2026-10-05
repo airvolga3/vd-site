@@ -99,8 +99,8 @@
   <div class="wrap fit-grid">
     <div class="fit-copy rv">
       <span class="lab">货物试装 · 无需经理</span>
-      <h2 style="margin-top:12px;">您的货物装得下吗？<span class="lt">在真实的安-124模型中试一试</span></h2>
-      <p class="sub">输入重量和尺寸——货物将按比例出现在真实的飞机3D模型内。机身半透明，货舱高亮。鼠标旋转，滚轮缩放。此为初步核对：最终结论以货物规划中心为准。</p>
+      <h2 style="margin-top:12px;">您的货物装得下吗？<span class="lt">在安-124和伊尔-76模型中试一试</span></h2>
+      <p class="sub">输入重量和尺寸——货物将按比例出现在飞机3D模型内：安-124为精细模型，伊尔-76为按尺寸绘制的示意模型。机身半透明，货舱高亮。鼠标旋转，滚轮缩放。此为初步核对：最终结论以货物规划中心为准。</p>
       <div class="fields">
         <div class="field"><label for="weight">重量 · 吨</label><input id="weight" type="number" min="0" step="0.1" value="82"></div>
         <div class="field"><label for="l">长 · 米</label><input id="l" type="number" min="0" step="0.1" value="9.1"></div>
@@ -112,7 +112,7 @@
     <div class="viz-card rv d1">
       <div class="viz-head">
         <div class="t">3D货舱<small>鼠标或手指旋转</small></div>
-        <div class="actabs"><span class="actab on">安-124 · 真实模型</span></div>
+        <div class="actabs"><button class="actab on" type="button" data-ac="0">安-124</button><button class="actab" type="button" data-ac="1">伊尔-76</button></div>
       </div>
       <div class="stage" id="stage3d" style="height:360px;">
         <div class="hud" id="hud"></div>
