@@ -21,7 +21,9 @@
 en/  zh/        по 9 страниц, полные переводы
 assets/         style.css (переменные темы в :root; блок «hero v2» в конце), app.js,
                 fonts.css + fonts/ — Golos Text локально (5 весов, кириллица+латиница),
-                plane3d.js + three.min.js + GLTFLoader.js + meshopt_decoder.js + an124-fit.glb (0,5 МБ, meshopt) — 3D-примерка груза,
+                plane3d.js + three.min.js + GLTFLoader.js + meshopt_decoder.js + an124-fit.glb (0,5 МБ, meshopt) — 3D-примерка груза;
+                il76-fit.glb (0,36 МБ) — Ил-76 от helijah, Sketchfab, CC BY 4.0: подпись автора
+                под примеркой на fleet.html ОБЯЗАТЕЛЬНА; кабина Ил-76 стоит по обмеру (fixed в plane3d.js),
                 worldmap.js — карта маршрутов
 img/            изображения
 tools/          translate.py + i18n.tsv — сборка en/ и zh/ из RU
@@ -87,5 +89,9 @@ robots.txt, sitemap.xml
 на карту и в быстрый расчёт. Всё, что демо, перечислено в DATA-REVISION.md.
 Открыто: реальные данные по DATA-REVISION.md, бэкенд заявок (решение владельца —
 mailto), ретушь/замена AI-кадров, лицензия 3D-модели.
+
+В примерке две модели: Ан-124 и Ил-76 (детальная, helijah, CC BY 4.0, с подписью автора).
+Самодельная схематичная модель Ил-76 владельцу не понравилась и была откачена:
+визуал на сайт — только качественный и после показа скриншота.
 
 *Раздел обновляется в конце каждой сессии.*
