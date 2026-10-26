@@ -171,6 +171,11 @@ var VD = {
     try{ new MutationObserver(run).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]}); }catch(e){}
   }
 
+  /* живая строка на первом экране */
+  var tw=$("#tkWin"), tl=$("#tkLeg");
+  if(tw){ var w1=VD.windows.filter(function(w){return w.kind==="win";})[0], l1=VD.windows.filter(function(w){return w.kind==="leg";})[0];
+    if(w1) tw.textContent=w1.d+" · "+w1.ac+" · "+w1.from; if(l1) tl.textContent=l1.d+" · "+l1.from+" → "+l1.to; }
+
   /* ── Окна бортов ── */
   var board=$("#board");
   if(board){

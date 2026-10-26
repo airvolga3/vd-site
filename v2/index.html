@@ -13,7 +13,7 @@
 <meta property="og:image" content="https://airvolga3.github.io/vd-site/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://airvolga3.github.io/vd-site/v2/index.html">
-<meta name="theme-color" content="#121C26">
+<meta name="theme-color" content="#061424">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preload" href="fonts/golos-text-cyrillic-800-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -46,35 +46,29 @@
   </div>
 </header>
 
-<!-- 1. Главный кадр -->
-<section class="photo-hero" style="padding:0" aria-label="Главный экран">
+<!-- 1. Кино-кадр + живая строка -->
+<section class="cine" style="padding:0" aria-label="Главный экран">
   <div class="bg"><img src="img/hero-load.webp" srcset="img/hero-load-m.webp 960w, img/hero-load.webp 1672w" sizes="100vw" width="1672" height="941" fetchpriority="high" alt="Погрузка космического аппарата через носовой люк Ан-124 на ночном перроне"></div>
   <span class="photo-credit">кадр-заглушка · заменить на съёмку</span>
-  <div class="wrap in">
-    <div style="display:grid;gap:22px">
-      <span class="kick">Сверхтяжёлые и негабаритные грузы · с 1990 года</span>
-      <h1>Скажите, что нужно перевезти. Мы покажем, каким бортом и когда.</h1>
-      <p class="sub">Ан-124 и Ил-76 для разовых проектов, регулярные рейсы для постоянного потока. Предварительная ставка за 4 рабочих часа.</p>
-      <div class="acts">
-        <a class="btn lg" href="#fit">Примерить груз</a>
-        <a class="btn lg line" href="request.html" data-kind="charter" data-src="кнопка на главном экране">Получить ставку</a>
-      </div>
-    </div>
-    <div class="facts-in">
-      <div class="ft"><span class="v">150 т</span><span class="k">максимальный груз</span></div>
-      <div class="ft"><span class="v">36,5 м</span><span class="k">длина кабины Ан-124</span></div>
-      <div class="ft"><span class="v">4 ч</span><span class="k">до предварительной ставки</span></div>
-      <div class="ft"><span class="v">24/7</span><span class="k">дежурный по чартеру</span></div>
-      <div class="ft"><span class="v">с 1990</span><span class="k">в проектной логистике</span></div>
-    </div>
+  <div class="wrap ct">
+    <span class="tag-line">Сверхтяжёлая авиалогистика · с 1990</span>
+    <h1>Груз, который больше никто не возьмёт.</h1>
+    <div class="row"><p>Ан-124 и Ил-76. Турбины, трансформаторы, спутники, вертолёты. Ставка и окно борта за 4 рабочих часа.</p>
+      <div class="acts"><a class="pill" href="#fit">Примерить груз <span>→</span></a><a class="pill ghost" href="request.html" data-kind="charter" data-src="кнопка на главном экране">Получить ставку</a></div></div>
   </div>
+  <div class="tick"><div class="wrap">
+    <div class="it"><span>Ближайшее окно</span><b class="live" id="tkWin">—</b></div>
+    <div class="it"><span>Попутный рейс</span><b><a href="#windows" id="tkLeg">—</a></b></div>
+    <div class="it"><span>Макс. груз</span><b>150 т · 36,5 м</b></div>
+    <div class="it"><span>Ответ со ставкой</span><b>4 рабочих часа · 24/7</b></div>
+  </div></div>
 </section>
 
 <!-- 2. Примерка: фирменный приём -->
 <section class="blueprint" id="fit">
   <div class="wrap">
-    <div class="sh"><span class="lab">Шаг 1 из 2 · без регистрации</span>
-      <h2>Ваш груз в кабине, в одном масштабе</h2>
+    <div class="sh"><span class="tag-line">Шаг 1 из 2 · без регистрации</span>
+      <h2 class="caps">Ваш груз в кабине. В одном масштабе.</h2>
       <p>Выберите пример или введите размеры. Чертёж сразу покажет, какой борт подходит, а маршрут даст время в пути.</p></div>
     <div class="fit-in">
       <div class="panel">
@@ -111,34 +105,19 @@
   </div>
 </section>
 
-<!-- 3. Два продукта -->
-<section id="products">
-  <div class="wrap">
-    <div class="sh"><span class="lab">Два продукта</span><h2>Один груз или постоянный поток</h2>
-      <p>Разовые проекты летают на собственных Ан-124 и Ил-76. Регулярные программы работают по расписанию и переходят на Boeing по мере прихода бортов.</p></div>
-    <div class="prod">
-      <a class="pcard" href="#fit">
-        <img src="img/rain.webp" width="1280" height="669" loading="lazy" alt="Ан-124 Волга-Днепр на мокрой полосе">
-        <div class="pb"><span class="who">Грузовладелец · проект</span><h3>Чартер</h3>
-          <p>Борт целиком под ваш груз: турбина, трансформатор, вертолёт, буровое оборудование. Своя оснастка, разрешения, выгрузка без наземной техники.</p>
-          <ul><li><span>Ан-124-100</span><span>до 120 т · 36,5 м</span></li><li><span>Ил-76ТД-90ВД</span><span>до 50 т · 20 м</span></li><li><span>Ответ со ставкой</span><span>4 рабочих часа</span></li></ul>
-          <span class="go">Примерить груз →</span></div>
-      </a>
-      <a class="pcard" href="request.html" data-kind="regular" data-src="карточка регулярных рейсов">
-        <img src="img/gold.webp" width="1280" height="669" loading="lazy" alt="Ан-124 над облаками на закате">
-        <div class="pb"><span class="who">Импортёр · экспедитор · агент</span><h3>Регулярные рейсы</h3>
-          <p>Расписание и предсказуемая ёмкость на рейс. Бронь от одного места, аллотменты для агентов, документы в одном кабинете.</p>
-          <ul><li><span>Китай → Россия</span><span>3 рейса в неделю <span class="demo">демо</span></span></li><li><span>Россия → Китай</span><span>обратное плечо</span></li><li><span>Boeing 747-400F</span><span>в планах</span></li></ul>
-          <span class="go">Забронировать ёмкость →</span></div>
-      </a>
-    </div>
+<!-- 3. Три услуги фото-панелями -->
+<section id="products" style="padding:0" aria-label="Услуги">
+  <div class="panels">
+    <a href="#fit"><img src="img/rain.webp" width="1280" height="669" loading="lazy" alt="Ан-124 Волга-Днепр на мокрой полосе"><div class="t"><span class="n">01 · разовый груз</span><h3>Чартер</h3><p>Борт целиком под проект. Ан-124 до 120 т, Ил-76 до 50 т, своя оснастка и разрешения.</p><span class="go">Примерить груз →</span></div></a>
+    <a href="request.html" data-kind="regular" data-src="панель регулярных рейсов"><img src="img/gold.webp" width="1280" height="669" loading="lazy" alt="Ан-124 над облаками на закате"><div class="t"><span class="n">02 · постоянный поток</span><h3>Регулярные рейсы</h3><p>Расписание и предсказуемая ёмкость. Бронь от одного места, аллотменты для агентов.</p><span class="go">Забронировать ёмкость →</span></div></a>
+    <a href="backhaul.html"><img src="img/multi.webp" width="1280" height="669" loading="lazy" alt="Грузовик Волга-Днепр у борта Ан-124"><div class="t"><span class="n">03 · экспорт</span><h3>Россия → Китай</h3><p>Борт летит в Китай за грузом, ваш груз летит с ним. Отдельные условия для экспортёров.</p><span class="go">Условия →</span></div></a>
   </div>
 </section>
 
 <!-- 4. Окна бортов -->
-<section id="windows" class="tight" style="padding-top:0">
+<section id="windows">
   <div class="wrap">
-    <div class="sh rule"><span class="lab">Свободная ёмкость · обновляется ежедневно</span><h2>Окна бортов и попутные рейсы</h2>
+    <div class="sh"><span class="tag-line">Свободная ёмкость · обновляется ежедневно</span><h2>Окна бортов и попутные рейсы</h2>
       <p>Борт уже летит или стоит в базе. Если ваш груз совпадает по дате и маршруту, это самый быстрый способ улететь.</p></div>
     <div class="filters" id="bfilter">
       <div class="chips"><button type="button" data-k="all" aria-pressed="true">Все</button><button type="button" data-k="leg" aria-pressed="false">Попутные рейсы</button><button type="button" data-k="win" aria-pressed="false">Свободные окна</button></div>
