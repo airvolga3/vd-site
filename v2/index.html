@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Волга-Днепр — перевезём то, что не помещается в другие самолёты</title>
+<meta name="description" content="Примерьте груз в кабину Ан-124 и Ил-76, посмотрите свободные окна бортов и получите ставку за 4 рабочих часа. Чартер, регулярные рейсы, обратное плечо в Китай.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Волга-Днепр — начните с груза">
+<meta property="og:description" content="Примерка груза в кабину, окна бортов и ставка за 4 рабочих часа.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://airvolga3.github.io/vd-site/v2/index.html">
+<meta property="og:image" content="https://airvolga3.github.io/vd-site/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://airvolga3.github.io/vd-site/v2/index.html">
+<meta name="theme-color" content="#121C26">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/golos-text-cyrillic-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="v2.css">
+</head>
+<body>
+<div class="ribbon">Концепт «Начните с груза» · цифры, окна и кадры демонстрационные</div>
+
+<header class="site">
+  <div class="wrap hrow">
+    <a class="logo" href="index.html"><img src="logo.png" width="892" height="193" alt="Волга-Днепр"></a>
+    <nav class="main" aria-label="Основное меню">
+      <a href="#fit">Разовый груз</a>
+      <a href="#products">Регулярные рейсы</a>
+      <a href="backhaul.html">Россия → Китай</a>
+      <a href="#windows">Окна бортов</a>
+      <a href="#cases">Проекты</a>
+      <a href="#tender">Для тендера</a>
+    </nav>
+    <div class="hact">
+      <a class="htel" href="tel:+74957556850">+7 495 755 68 50</a>
+      <a class="btn sm" href="request.html">Заявка</a>
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mnav"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+  <div class="wrap mnav" id="mnav">
+    <a href="#fit">Разовый груз</a><a href="#products">Регулярные рейсы</a><a href="backhaul.html">Россия → Китай</a>
+    <a href="#windows">Окна бортов</a><a href="#cases">Проекты</a><a href="#tender">Для тендера</a><a href="request.html">Заявка</a>
+  </div>
+</header>
+
+<!-- 1. Главный кадр -->
+<section class="photo-hero" style="padding:0" aria-label="Главный экран">
+  <div class="bg"><img src="img/hero-load.webp" srcset="img/hero-load-m.webp 960w, img/hero-load.webp 1672w" sizes="100vw" width="1672" height="941" fetchpriority="high" alt="Погрузка космического аппарата через носовой люк Ан-124 на ночном перроне"></div>
+  <span class="photo-credit">кадр-заглушка · заменить на съёмку</span>
+  <div class="wrap in">
+    <div style="display:grid;gap:22px">
+      <span class="kick">Сверхтяжёлые и негабаритные грузы · с 1990 года</span>
+      <h1>Скажите, что нужно перевезти. Мы покажем, каким бортом и когда.</h1>
+      <p class="sub">Ан-124 и Ил-76 для разовых проектов, регулярные рейсы для постоянного потока. Предварительная ставка за 4 рабочих часа.</p>
+      <div class="acts">
+        <a class="btn lg" href="#fit">Примерить груз</a>
+        <a class="btn lg line" href="request.html" data-kind="charter" data-src="кнопка на главном экране">Получить ставку</a>
+      </div>
+    </div>
+    <div class="facts-in">
+      <div class="ft"><span class="v">150 т</span><span class="k">максимальный груз</span></div>
+      <div class="ft"><span class="v">36,5 м</span><span class="k">длина кабины Ан-124</span></div>
+      <div class="ft"><span class="v">4 ч</span><span class="k">до предварительной ставки</span></div>
+      <div class="ft"><span class="v">24/7</span><span class="k">дежурный по чартеру</span></div>
+      <div class="ft"><span class="v">с 1990</span><span class="k">в проектной логистике</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Примерка: фирменный приём -->
+<section class="blueprint" id="fit">
+  <div class="wrap">
+    <div class="sh"><span class="lab">Шаг 1 из 2 · без регистрации</span>
+      <h2>Ваш груз в кабине, в одном масштабе</h2>
+      <p>Выберите пример или введите размеры. Чертёж сразу покажет, какой борт подходит, а маршрут даст время в пути.</p></div>
+    <div class="fit-in">
+      <div class="panel">
+        <div class="ph"><span class="lab">Параметры груза</span><span class="demo">справочно</span></div>
+        <form autocomplete="off" onsubmit="return false">
+          <div class="chips" id="presets" aria-label="Примеры грузов"></div>
+          <div class="g3">
+            <label class="f" for="cL">Длина, м<input id="cL" type="number" step="0.1" min="0.1" inputmode="decimal"></label>
+            <label class="f" for="cW">Ширина, м<input id="cW" type="number" step="0.1" min="0.1" inputmode="decimal"></label>
+            <label class="f" for="cH">Высота, м<input id="cH" type="number" step="0.1" min="0.1" inputmode="decimal"></label>
+          </div>
+          <label class="f" for="cM">Масса, т<input id="cM" type="number" step="1" min="1" inputmode="numeric"></label>
+          <div class="g2">
+            <label class="f" for="cFrom">Откуда<select id="cFrom"></select></label>
+            <label class="f" for="cTo">Куда<select id="cTo"></select></label>
+          </div>
+          <p class="hint">Расстояние <b class="num" id="dist">—</b> · оптимальный борт: <b id="best">—</b></p>
+        </form>
+      </div>
+      <div class="sheet">
+        <div class="sv"><svg id="planes" viewBox="0 0 960 590" role="img" aria-label="Схемы Ан-124 и Ил-76 в одном масштабе с кабиной и грузом"></svg></div>
+        <div class="verdicts">
+          <div class="vd-card" id="v-an"><h3>Ан-124-100 <span class="chip">—</span></h3>
+            <svg viewBox="0 0 135 112" style="max-width:160px" aria-hidden="true"></svg>
+            <dl><dt>Груз</dt><dd class="why">—</dd><dt>В пути</dt><dd class="fly">—</dd></dl></div>
+          <div class="vd-card" id="v-il"><h3>Ил-76ТД-90ВД <span class="chip">—</span></h3>
+            <svg viewBox="0 0 135 112" style="max-width:160px" aria-hidden="true"></svg>
+            <dl><dt>Груз</dt><dd class="why">—</dd><dt>В пути</dt><dd class="fly">—</dd></dl></div>
+        </div>
+        <div class="next"><p id="nextTxt">—</p><a class="btn" href="request.html" data-kind="charter">Шаг 2: получить ставку →</a></div>
+        <div class="stamp"><div><span class="lab">Лист</span><b>Примерка</b></div><div><span class="lab">Масштаб</span><b>единый</b></div><div><span class="lab">Габариты</span><b>справочные</b></div><div><span class="lab">Проверка</span><b>инженер ЦГП</b></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Два продукта -->
+<section id="products">
+  <div class="wrap">
+    <div class="sh"><span class="lab">Два продукта</span><h2>Один груз или постоянный поток</h2>
+      <p>Разовые проекты летают на собственных Ан-124 и Ил-76. Регулярные программы работают по расписанию и переходят на Boeing по мере прихода бортов.</p></div>
+    <div class="prod">
+      <a class="pcard" href="#fit">
+        <img src="img/rain.webp" width="1280" height="669" loading="lazy" alt="Ан-124 Волга-Днепр на мокрой полосе">
+        <div class="pb"><span class="who">Грузовладелец · проект</span><h3>Чартер</h3>
+          <p>Борт целиком под ваш груз: турбина, трансформатор, вертолёт, буровое оборудование. Своя оснастка, разрешения, выгрузка без наземной техники.</p>
+          <ul><li><span>Ан-124-100</span><span>до 120 т · 36,5 м</span></li><li><span>Ил-76ТД-90ВД</span><span>до 50 т · 20 м</span></li><li><span>Ответ со ставкой</span><span>4 рабочих часа</span></li></ul>
+          <span class="go">Примерить груз →</span></div>
+      </a>
+      <a class="pcard" href="request.html" data-kind="regular" data-src="карточка регулярных рейсов">
+        <img src="img/gold.webp" width="1280" height="669" loading="lazy" alt="Ан-124 над облаками на закате">
+        <div class="pb"><span class="who">Импортёр · экспедитор · агент</span><h3>Регулярные рейсы</h3>
+          <p>Расписание и предсказуемая ёмкость на рейс. Бронь от одного места, аллотменты для агентов, документы в одном кабинете.</p>
+          <ul><li><span>Китай → Россия</span><span>3 рейса в неделю <span class="demo">демо</span></span></li><li><span>Россия → Китай</span><span>обратное плечо</span></li><li><span>Boeing 747-400F</span><span>в планах</span></li></ul>
+          <span class="go">Забронировать ёмкость →</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Окна бортов -->
+<section id="windows" class="tight" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh rule"><span class="lab">Свободная ёмкость · обновляется ежедневно</span><h2>Окна бортов и попутные рейсы</h2>
+      <p>Борт уже летит или стоит в базе. Если ваш груз совпадает по дате и маршруту, это самый быстрый способ улететь.</p></div>
+    <div class="filters" id="bfilter">
+      <div class="chips"><button type="button" data-k="all" aria-pressed="true">Все</button><button type="button" data-k="leg" aria-pressed="false">Попутные рейсы</button><button type="button" data-k="win" aria-pressed="false">Свободные окна</button></div>
+      <span class="demo" style="align-self:center">демо-данные</span>
+    </div>
+    <div class="board-wrap"><table class="board">
+      <thead><tr><th>Дата</th><th>Борт</th><th>Маршрут</th><th>Тип</th><th>Ёмкость</th><th>Примечание</th><th></th></tr></thead>
+      <tbody id="board"></tbody>
+    </table></div>
+  </div>
+</section>
+
+<!-- 5. Обратное плечо -->
+<section class="back">
+  <div class="wrap back-in">
+    <div class="sh" style="margin:0"><span class="lab">Для экспортёров</span>
+      <h2>Россия → Китай: борт летит в Китай за грузом, ваш груз летит с ним</h2>
+      <p>Регулярная программа возит импорт из Китая, и обратно борта идут с запасом ёмкости. Для экспортёров это отдельные условия и бронь без долгих согласований.</p>
+      <div><a class="btn lg" href="backhaul.html">Условия обратного плеча →</a></div></div>
+    <svg viewBox="0 0 520 320" role="img" aria-label="Схема: из российских городов в китайские">
+      <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7DB6F2"/></marker></defs>
+      <g fill="none" stroke="#2A3846" stroke-width="1">
+        <path d="M0 80 H520 M0 160 H520 M0 240 H520 M130 0 V320 M260 0 V320 M390 0 V320"/></g>
+      <g fill="none" stroke="#7DB6F2" stroke-width="2" marker-end="url(#ah)">
+        <path d="M40 70 C 180 70, 420 110, 452 220"/><path d="M220 56 C 300 70, 360 140, 372 210"/><path d="M330 70 C 400 100, 430 200, 420 262"/></g>
+      <g font-family="ui-monospace, Menlo, monospace" font-size="13" fill="#E6EDF3">
+        <circle cx="40" cy="70" r="5" fill="#fff"/><text x="40" y="52" text-anchor="middle">Москва</text>
+        <circle cx="220" cy="56" r="5" fill="#fff"/><text x="220" y="38" text-anchor="middle">Новосибирск</text>
+        <circle cx="330" cy="70" r="5" fill="#fff"/><text x="330" y="52" text-anchor="middle">Красноярск</text>
+        <circle cx="455" cy="226" r="5" fill="#7DB6F2"/><text x="466" y="230">Шанхай</text>
+        <circle cx="372" cy="216" r="5" fill="#7DB6F2"/><text x="362" y="220" text-anchor="end">Чжэнчжоу</text>
+        <circle cx="420" cy="268" r="5" fill="#7DB6F2"/><text x="432" y="290">Гонконг</text></g>
+      <text x="0" y="314" font-family="ui-monospace, Menlo, monospace" font-size="11" fill="#A9B8C6">схема, не карта · направления демонстрационные</text>
+    </svg>
+  </div>
+</section>
+
+<!-- 6. Проекты -->
+<section id="cases">
+  <div class="wrap">
+    <div class="sh"><span class="lab">Проекты</span><h2>Кейс — это габарит, масса и срок</h2>
+      <p>Каждый проект показан так, как его видит инженер: силуэт груза в масштабе кабины и цифры.</p></div>
+    <div class="cases">
+      <article class="case">
+        <div class="cv"><svg viewBox="0 0 300 110" aria-hidden="true"><rect x="10" y="30" width="280" height="62" fill="none" stroke="#1F6FBF" stroke-dasharray="4 3"/><g fill="#1E7F5C" fill-opacity=".28" stroke="#1E7F5C" stroke-width="1.5"><rect x="40" y="62" width="40" height="30"/><rect x="95" y="62" width="40" height="30"/><rect x="150" y="62" width="40" height="30"/><rect x="205" y="62" width="40" height="30"/></g><text x="10" y="22" font-size="11" font-family="ui-monospace, Menlo, monospace" fill="#6F8191">8 транспортных клеток · схема</text></svg></div>
+        <div class="cb"><div class="top"><span class="lab">Живые грузы</span><span class="chip n">реальный</span></div>
+          <h3>Восемь жирафов из Намибии в Казань</h3>
+          <dl><dt>Маршрут</dt><dd>Намибия → Казань</dd><dt>Груз</dt><dd>8 животных в клетках</dd><dt>Дата</dt><dd>сентябрь 2026</dd></dl>
+          <p>По новости 18.09.2026. Борт, срок и подробности уточнить у пресс-службы.</p></div></article>
+      <article class="case">
+        <div class="cv"><svg viewBox="0 0 300 110" aria-hidden="true"><rect x="10" y="30" width="280" height="62" fill="none" stroke="#1F6FBF" stroke-dasharray="4 3"/><g fill="#1E7F5C" fill-opacity=".28" stroke="#1E7F5C" stroke-width="1.5"><rect x="30" y="50" width="90" height="42"/><rect x="130" y="58" width="60" height="34"/><rect x="200" y="66" width="70" height="26"/></g><text x="10" y="22" font-size="11" font-family="ui-monospace, Menlo, monospace" fill="#6F8191">сборный проектный груз · схема</text></svg></div>
+        <div class="cb"><div class="top"><span class="lab">Промышленность</span><span class="chip n">реальный</span></div>
+          <h3>80 т оборудования из Турции в Забайкалье</h3>
+          <dl><dt>Маршрут</dt><dd>Турция → Чита</dd><dt>Масса</dt><dd>более 80 т</dd><dt>Дата</dt><dd>июль 2026</dd></dl>
+          <p>По новости 22.07.2026. Для публикации нужны габариты, срок и согласие клиента.</p></div></article>
+      <article class="case">
+        <div class="cv"><svg viewBox="0 0 300 110" aria-hidden="true"><rect x="10" y="30" width="280" height="62" fill="none" stroke="#1F6FBF" stroke-dasharray="4 3"/><rect x="88" y="34" width="70" height="58" fill="#1E7F5C" fill-opacity=".28" stroke="#1E7F5C" stroke-width="1.5"/><text x="10" y="22" font-size="11" font-family="ui-monospace, Menlo, monospace" fill="#6F8191">Ан-124 · 7,8 × 3,9 × 4,2 м</text></svg></div>
+        <div class="cb"><div class="top"><span class="lab">Энергетика · Ан-124-100</span><span class="demo">демо</span></div>
+          <h3>Трансформатор 95 т</h3>
+          <dl><dt>Маршрут</dt><dd>Сеул → Хабаровск</dd><dt>Габарит</dt><dd>7,8 × 3,9 × 4,2 м</dd><dt>Срок</dt><dd>5 суток проект</dd></dl>
+          <p>Аэропорт без техники нужной грузоподъёмности: бортовые краны и роликовая оснастка.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Кадр-пауза -->
+<section class="band" style="padding:0" aria-label="Цитата">
+  <img src="img/gear.webp" width="1280" height="669" alt="Многоколёсное шасси Ан-124 на мокром перроне">
+  <div class="wrap"><span class="lab">Почему это работает</span>
+    <blockquote>24 колеса шасси меняют наклон фюзеляжа: техника заезжает в кабину своим ходом, даже там, где нет кранов.</blockquote></div>
+</section>
+
+<!-- 8. Процесс -->
+<section>
+  <div class="wrap">
+    <div class="sh"><span class="lab">Как мы работаем</span><h2>От заявки до закрывающих документов</h2></div>
+    <div class="steps">
+      <div class="step"><span class="n">01</span><h3>Заявка</h3><p>Габарит, масса, маршрут, чертёж. Номер заявки и менеджер сразу.</p><span class="t">0 мин</span></div>
+      <div class="step"><span class="n">02</span><h3>Ставка и окно</h3><p>Предварительная ставка и доступный борт.</p><span class="t">до 4 рабочих часов</span></div>
+      <div class="step"><span class="n">03</span><h3>Инженерия</h3><p>ЦГП считает размещение, крепление и центровку.</p><span class="t">параллельно</span></div>
+      <div class="step"><span class="n">04</span><h3>Рейс</h3><p>Разрешения, погрузка своей оснасткой, статус по шагам.</p><span class="t">по плану</span></div>
+      <div class="step"><span class="n">05</span><h3>Документы</h3><p>Выгрузка, POD, закрывающие, отчёт.</p><span class="t">сразу после</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Люди продаж -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sh rule"><span class="lab">Кто ответит</span><h2>За каждой заявкой человек, а не почтовый ящик</h2></div>
+    <div class="mgr">
+      <div><h3>Чартер</h3><p>Менеджер ведёт проект от заявки до документов. Срочные грузы принимает дежурный круглосуточно.</p><span class="num">+7 495 755 68 50</span></div>
+      <div><h3>Регулярные рейсы</h3><p>Бронь ёмкости, аллотменты, обратное плечо, статус груза на рейсе.</p><span class="num">sales@volga-dnepr.com</span></div>
+      <div><h3>Агенты в регионах</h3><p>Китай, Гонконг, Ближний Восток, Индия, Африка. Местный язык и часовой пояс. <span class="demo">список уточнить</span></p><a href="request.html" data-kind="agent">Стать агентом →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. Тендер -->
+<section id="tender" class="blueprint">
+  <div class="wrap">
+    <div class="sh"><span class="lab">Для тендера и службы безопасности</span><h2>Всё для проверки подрядчика, без переписки</h2></div>
+    <div class="docs">
+      <a href="#tender"><span>Сертификат эксплуатанта</span><span>PDF</span></a>
+      <a href="#tender"><span>Лицензии и допуски DGR</span><span>PDF</span></a>
+      <a href="#tender"><span>Страхование ответственности</span><span>PDF</span></a>
+      <a href="#tender"><span>Карточка компании и реквизиты</span><span>PDF</span></a>
+      <a href="#tender"><span>Общие условия перевозки</span><span>PDF</span></a>
+      <a href="#tender"><span>Сбытовая и ценовая политика</span><span>PDF</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap cta-in">
+    <div><h2>Груз уже ждёт отправки?</h2><p>Отправьте параметры, и через 4 рабочих часа у вас будет ставка и окно борта. Срочно: дежурный по чартеру круглосуточно.</p></div>
+    <div style="display:grid;gap:16px;justify-items:start"><a class="btn lg" href="request.html" data-kind="charter" data-src="финальный блок главной">Отправить заявку →</a>
+      <div class="contacts"><a href="tel:+74957556850">+7 495 755 68 50</a><a href="mailto:sales@volga-dnepr.com">sales@volga-dnepr.com</a></div></div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="fcols">
+      <div><h4>Перевозки</h4><a href="#fit">Чартер</a><a href="#products">Регулярные рейсы</a><a href="backhaul.html">Россия → Китай</a><a href="#windows">Окна бортов</a></div>
+      <div><h4>Клиентам</h4><a href="request.html">Заявка</a><a href="#cases">Проекты</a><a href="#tender">Документы для тендера</a><a href="request.html" data-kind="agent">Агентам</a></div>
+      <div><h4>Компания</h4><a href="#">О компании</a><a href="#">Безопасность полётов</a><a href="#">Новости</a><a href="#">Карьера</a></div>
+      <div><h4>Связь</h4><a href="tel:+74957556850">+7 495 755 68 50</a><a href="mailto:sales@volga-dnepr.com">sales@volga-dnepr.com</a><a href="sales.html">Как сайт продаёт (для руководства)</a></div>
+    </div>
+    <div class="fnote">© Волга-Днепр · концепт сайта · демо-данные помечены</div>
+  </div>
+</footer>
+<script src="v2.js" defer></script>
+</body>
+</html>

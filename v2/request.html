@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Заявка на перевозку — Волга-Днепр</title>
+<meta name="description" content="Три шага: груз, маршрут, контакты. Номер заявки и менеджер сразу, предварительная ставка за 4 рабочих часа.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Заявка на перевозку — Волга-Днепр">
+<meta property="og:description" content="Номер заявки и менеджер сразу, ставка за 4 рабочих часа.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://airvolga3.github.io/vd-site/v2/request.html">
+<meta property="og:image" content="https://airvolga3.github.io/vd-site/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://airvolga3.github.io/vd-site/v2/request.html">
+<meta name="theme-color" content="#121C26">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="v2.css">
+</head>
+<body>
+<div class="ribbon">Концепт «Начните с груза» · заявка не отправляется, экран подтверждения показывает механику</div>
+<header class="site">
+  <div class="wrap hrow">
+    <a class="logo" href="index.html"><img src="logo.png" width="892" height="193" alt="Волга-Днепр"></a>
+    <nav class="main" aria-label="Основное меню">
+      <a href="index.html#fit">Разовый груз</a><a href="index.html#products">Регулярные рейсы</a><a href="backhaul.html">Россия → Китай</a>
+      <a href="index.html#windows">Окна бортов</a><a href="index.html#cases">Проекты</a><a href="index.html#tender">Для тендера</a>
+    </nav>
+    <div class="hact"><a class="htel" href="tel:+74957556850">+7 495 755 68 50</a>
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mnav"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+  </div>
+  <div class="wrap mnav" id="mnav"><a href="index.html#fit">Разовый груз</a><a href="index.html#products">Регулярные рейсы</a><a href="backhaul.html">Россия → Китай</a><a href="index.html#windows">Окна бортов</a><a href="index.html#cases">Проекты</a></div>
+</header>
+
+<section class="blueprint" style="padding-block:48px 72px">
+  <div class="wrap">
+    <div class="sh"><span class="lab">Шаг 2 из 2 · заявка</span><h1 style="font-size:clamp(28px,3.6vw,42px);font-weight:800">Ставка и окно борта за 4 рабочих часа</h1>
+      <p>Спрашиваем только то, от чего зависит цена. Контакты на последнем шаге.</p></div>
+    <div class="req">
+      <div>
+        <p class="hint" id="srcNote" hidden style="margin-bottom:10px">Параметры перенесены: <span id="srcTxt"></span></p>
+        <div class="stepper" aria-hidden="true"><div class="on">1 · Груз</div><div>2 · Маршрут и срок</div><div>3 · Контакты</div></div>
+        <form class="rform" id="rform" novalidate>
+          <fieldset>
+            <legend>Что везём</legend>
+            <label class="f" for="rKind">Тип перевозки
+              <select id="rKind"><option value="charter">Чартер: борт целиком</option><option value="regular">Регулярный рейс: часть ёмкости</option><option value="back">Россия → Китай (обратное плечо)</option><option value="agent">Я агент или экспедитор</option></select></label>
+            <label class="f" for="rWhat">Что за груз, одной строкой<input id="rWhat" required placeholder="например, силовой трансформатор в транспортной раме"></label>
+            <div class="g4">
+              <label class="f" for="rL">Длина, м<input id="rL" type="number" step="0.1" min="0" inputmode="decimal"></label>
+              <label class="f" for="rW">Ширина, м<input id="rW" type="number" step="0.1" min="0" inputmode="decimal"></label>
+              <label class="f" for="rH">Высота, м<input id="rH" type="number" step="0.1" min="0" inputmode="decimal"></label>
+              <label class="f" for="rM">Масса, т<input id="rM" type="number" step="0.1" min="0" inputmode="decimal" required></label>
+            </div>
+            <label class="f" for="rCat">Особенности
+              <select id="rCat"><option>Проектный, негабаритный</option><option>Генеральный</option><option>Опасный (DGR)</option><option>Температурный режим</option><option>Живой груз</option><option>Гуманитарный</option></select></label>
+            <div class="drop" id="drop" role="button" tabindex="0">Приложить чертёж, схему или фото груза</div>
+            <input type="file" id="rFile" multiple hidden>
+            <p class="err" hidden>Заполните описание груза и массу.</p>
+            <div class="rnav"><span class="hint">Ни одного контактного поля на этом шаге</span><button class="btn" type="button" data-next>Дальше →</button></div>
+          </fieldset>
+          <fieldset hidden>
+            <legend>Откуда, куда и когда</legend>
+            <div class="g2"><label class="f" for="rFrom">Откуда<select id="rFrom" required></select></label><label class="f" for="rTo">Куда<select id="rTo" required></select></label></div>
+            <div class="g2"><label class="f" for="rDate">Груз готов к отправке<input id="rDate" type="date"></label>
+              <label class="f" for="rFlex">Гибкость по дате<select id="rFlex"><option>Дата жёсткая</option><option>± 3 дня</option><option>± 2 недели</option><option>Пока не определена</option></select></label></div>
+            <label class="f" for="rScope">Что нужно от нас<select id="rScope"><option>Только перелёт, аэропорт — аэропорт</option><option>С доставкой до аэропорта вылета</option><option>От двери до двери с таможней</option></select></label>
+            <p class="err" hidden>Выберите города отправления и назначения.</p>
+            <div class="rnav"><button class="btn line" type="button" data-prev>← Назад</button><button class="btn" type="button" data-next>Дальше →</button></div>
+          </fieldset>
+          <fieldset hidden>
+            <legend>Кому ответить</legend>
+            <div class="g2"><label class="f" for="rName">Имя<input id="rName" required autocomplete="name"></label><label class="f" for="rCo">Компания<input id="rCo" autocomplete="organization"></label></div>
+            <div class="g2"><label class="f" for="rTel">Телефон или мессенджер<input id="rTel" required autocomplete="tel" inputmode="tel"></label><label class="f" for="rMail">E-mail<input id="rMail" type="email" autocomplete="email"></label></div>
+            <label class="f" style="display:flex;gap:8px;align-items:flex-start;font-size:13px" for="rAgree"><input id="rAgree" type="checkbox" required style="width:auto;margin-top:3px"> Согласен на обработку персональных данных по политике конфиденциальности</label>
+            <p class="err" hidden>Нужны имя, телефон и согласие на обработку данных.</p>
+            <div class="rnav"><button class="btn line" type="button" data-prev>← Назад</button><button class="btn" type="submit">Отправить заявку</button></div>
+          </fieldset>
+        </form>
+
+        <div class="done-card" id="done" hidden>
+          <div class="dh"><span class="lab">Заявка принята</span><h2 class="num" id="dNo">—</h2>
+            <p id="dSum" style="color:var(--ink-2)">—</p></div>
+          <div class="timeline">
+            <div class="tl now"><span class="tm" id="dNow">—</span><div><b>Заявка зарегистрирована.</b> Копия ушла вам на почту и в мессенджер.</div></div>
+            <div class="tl"><span class="tm">+15 мин</span><div><b id="dWho">—</b> назначен и свяжется, если нужно уточнение.</div></div>
+            <div class="tl"><span class="tm" id="dDue">—</span><div><b>Предварительная ставка и окно борта.</b> Если не успеваем, вы узнаете об этом раньше срока.</div></div>
+            <div class="tl"><span class="tm">далее</span><div>Договор, инженерная проработка ЦГП, рейс.</div></div>
+          </div>
+          <div class="next"><p>Срочно? Дежурный по чартеру отвечает круглосуточно.</p><span class="num">+7 495 755 68 50</span></div>
+        </div>
+      </div>
+      <aside class="aside">
+        <div class="box"><h3>Почему столько полей</h3><p>Ставка зависит от массы, габарита и даты. Если всё есть сразу, менеджер считает, а не переписывается.</p></div>
+        <div class="box"><h3>Что будет дальше</h3><p>Номер заявки и имя менеджера сразу. Предварительная ставка и доступный борт за 4 рабочих часа.</p></div>
+        <div class="box"><h3>Или напрямую</h3><p class="num">+7 495 755 68 50<br>sales@volga-dnepr.com</p></div>
+      </aside>
+    </div>
+  </div>
+</section>
+<footer class="site"><div class="wrap"><div class="fnote" style="margin:0;border:0;padding:0">© Волга-Днепр · концепт сайта · демо-данные помечены</div></div></footer>
+<script src="v2.js" defer></script>
+</body>
+</html>
